@@ -80,15 +80,15 @@ export const servicesData = [
 export const projects = [
   {
     id: 1,
-    name: "Mobile Accessories E-commerce",
+    name: "Finvoke - Trade Simulator",
     description:
-      "An online store specializing in phone accessories including cases, chargers, cables, and power banks with MagSafe compatibility.",
+      "Finvoke is a full-stack simulation platform where users can register, log in, manage virtual funds, buy stocks, and track orders and positions through a React-based dashboard interface.",
     href: "",
-    image: "/assets/projects/mobile-accessories-store.jpg",
+    image: "/assets/projects/finvoke.png",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
       { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
+      { id: 2, name: "Express.js" },
       { id: 3, name: "Node.js" },
       { id: 4, name: "MongoDB" },
       { id: 5, name: "Tailwind CSS" },
@@ -96,86 +96,60 @@ export const projects = [
   },
   {
     id: 2,
-    name: "Plant Shop E-commerce",
+    name: "MailX - A Email Cleaner Desktop App",
     description:
-      "An online store specializing in rare and decorative plants with a clean, user-friendly interface.",
+      "A powerful desktop application for analyzing, organizing, and cleaning up your Gmail inbox. Built with Java and JavaFX, this application runs completely locally on your computer while securely connecting to Gmail via OAuth 2.0.",
     href: "",
-    image: "/assets/projects/plant-shop.jpg",
+    image: "/assets/projects/MailX.png",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Stripe API" },
-      { id: 4, name: "Tailwind CSS" },
+      { id: 1, name: "Java" },
+      { id: 2, name: "JavaFX" },
+      { id: 3, name: "OAuth 2.0" },
+      { id: 4, name: "Gmail API" },
+      { id: 5, name: "JSoup" },
+      { id: 6, name: "Maven" },
+      { id: 7, name: "H2" },
+
+
     ],
   },
   {
     id: 3,
-    name: "Apple Tech Marketplace",
+    name: "DwellNest - A Property Renting Platform",
     description:
-      "An e-commerce platform for Apple products and accessories with deals and category filtering.",
+      "DwellNest is a full-stack backend project for listing rental properties. Users can upload property details along with images, and the app handles location mapping automatically using third-party APIs.",
     href: "",
-    image: "/assets/projects/apple-tech-store.jpg",
+    image: "/assets/projects/DwellNest.jpeg",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
-      { id: 1, name: "Blazor" },
-      { id: 2, name: "ASP.NET Core" },
-      { id: 3, name: "SQL Server" },
-      { id: 4, name: "Bootstrap" },
+      { id: 1, name: "Node.js" },
+      { id: 2, name: "Express.js" },
+      { id: 3, name: "Cloudinary" },
+      { id: 4, name: "MongoDB" },
+      { id: 5, name: "Multer" },
+      { id: 6, name: "OpenCage + Thunderforest APIs" },
+      
     ],
   },
   {
     id: 4,
-    name: "Electronics & Gadgets Store",
+    name: "CircuitDebugger - Debugger For Electronic Circuits",
     description:
-      "A multi-category online shop featuring electronics, home appliances, and gaming gear with special offers.",
+      "eSim AI Debugging Tool is a Python-based GUI app that helps debug electronic circuits using netlist analysis, ML-powered error classification, and an AI chatbot with a modern dark-themed interface.",
     href: "",
-    image: "/assets/projects/electronics-store.jpg",
+    image: "/assets/projects/CircuitDebugger.jpeg",
     bgImage: "/assets/backgrounds/poster.jpg",
     frameworks: [
-      { id: 1, name: "Vue.js" },
-      { id: 2, name: "Laravel" },
-      { id: 3, name: "MySQL" },
-      { id: 4, name: "SCSS" },
-    ],
-  },
-  {
-    id: 5,
-    name: "Home Decor Marketplace",
-    description:
-      "A curated collection of designer home decor items, including furniture and artisan vases.",
-    href: "",
-    image: "/assets/projects/home-decor-store.jpg",
-    bgImage: "/assets/backgrounds/table.jpg",
-    frameworks: [
-      { id: 1, name: "Angular" },
-      { id: 2, name: "Firebase" },
-      { id: 3, name: "GraphQL" },
-      { id: 4, name: "Material UI" },
-    ],
-  },
-  {
-    id: 6,
-    name: "Digital Game Store",
-    description:
-      "A gaming platform featuring discounted titles, top sellers, and genre-based browsing.",
-    href: "",
-    image: "/assets/projects/game-store.jpg",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "Svelte" },
-      { id: 2, name: "Node.js" },
-      { id: 3, name: "MongoDB" },
-      { id: 4, name: "Chakra UI" },
+      { id: 1, name: "Python" },
+      { id: 2, name: "Ollama" },
+      { id: 3, name: "Scikit-learn" },
+      
     ],
   },
 ];
 export const socials = [
-  { name: "Instagram", href: "https://www.instagram.com/ali.sanatidev/reels/" },
-  {
-    name: "Youtube",
-    href: "https://www.youtube.com/channel/UCZhtUWTtk3bGJiMPN9T4HWA",
-  },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/ali-sanati/" },
-  { name: "GitHub", href: "https://github.com/Ali-Sanati" },
+  { name: "Instagram", href: "https://www.instagram.com/mandeep_nehra" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/mandeep-nehra-289224371/" },
+  { name: "GitHub", href: "https://github.com/Mandeep-codes" },
 ];
