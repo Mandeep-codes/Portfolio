@@ -1,0 +1,113 @@
+import type { TechStack } from "../types/tech-stack"
+
+// Icons from https://simpleicons.org (cdn.simpleicons.org/<slug>/<color>)
+// theme: true = needs light/dark variants (white icon on dark, black on light)
+export const TECH_STACK: TechStack[] = [
+  {
+    key: "js",
+    title: "JavaScript",
+    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    icon: "https://cdn.simpleicons.org/javascript/F7DF1E",
+    categories: ["Languages"],
+  },
+  {
+    key: "typescript",
+    title: "TypeScript",
+    href: "https://www.typescriptlang.org/",
+    icon: "https://cdn.simpleicons.org/typescript/3178C6",
+    categories: ["Languages"],
+  },
+  {
+    key: "python",
+    title: "Python",
+    href: "https://www.python.org/",
+    icon: "https://cdn.simpleicons.org/python/3776AB",
+    categories: ["Languages"],
+  },
+  {
+    key: "java",
+    title: "Java",
+    href: "https://www.java.com/",
+    icon: "https://cdn.simpleicons.org/openjdk/ED8B00",
+    categories: ["Languages"],
+  },
+  {
+    key: "react",
+    title: "React",
+    href: "https://react.dev/",
+    icon: "https://cdn.simpleicons.org/react/61DAFB",
+    categories: ["Frontend"],
+  },
+  {
+    key: "nextjs2",
+    title: "Next.js",
+    href: "https://nextjs.org/",
+    icon: "https://cdn.simpleicons.org/nextdotjs/000000",
+    iconDark: "https://cdn.simpleicons.org/nextdotjs/FFFFFF",
+    theme: true,
+    categories: ["Frontend"],
+  },
+  {
+    key: "tailwindcss",
+    title: "Tailwind CSS",
+    href: "https://tailwindcss.com/",
+    icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4",
+    categories: ["Frontend"],
+  },
+  {
+    key: "motion",
+    title: "Motion",
+    href: "https://motion.dev/",
+    icon: "https://cdn.simpleicons.org/framer/0055FF",
+    categories: ["Frontend"],
+  },
+  {
+    key: "nodejs",
+    title: "Node.js",
+    href: "https://nodejs.org/",
+    icon: "https://cdn.simpleicons.org/nodedotjs/5FA04E",
+    categories: ["Backend & Database"],
+  },
+  {
+    key: "mongodb",
+    title: "MongoDB",
+    href: "https://www.mongodb.com/",
+    icon: "https://cdn.simpleicons.org/mongodb/47A248",
+    categories: ["Backend & Database"],
+  },
+  {
+    key: "postgresql",
+    title: "PostgreSQL",
+    href: "https://www.postgresql.org",
+    icon: "https://cdn.simpleicons.org/postgresql/4169E1",
+    categories: ["Backend & Database"],
+  },
+  {
+    key: "redis",
+    title: "Redis",
+    href: "https://redis.io/",
+    icon: "https://cdn.simpleicons.org/redis/FF4438",
+    categories: ["Backend & Database"],
+  },
+  {
+    key: "docker",
+    title: "Docker",
+    href: "https://www.docker.com/",
+    icon: "https://cdn.simpleicons.org/docker/2496ED",
+    categories: ["Dev Tools"],
+  },
+  {
+    key: "git",
+    title: "Git",
+    href: "https://git-scm.com/",
+    icon: "https://cdn.simpleicons.org/git/F05032",
+    categories: ["Dev Tools"],
+  },
+  {
+    key: "figma",
+    title: "Figma",
+    href: "https://www.figma.com/",
+    icon: "https://cdn.simpleicons.org/figma/F24E1E",
+    categories: ["Design"],
+  },
+]
