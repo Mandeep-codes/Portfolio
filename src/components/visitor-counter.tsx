@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react"
 import { EyeIcon } from "lucide-react"
 
-const COUNTER_UP = "https://api.counterapi.dev/v1/mandeep-portfolio/views/up/"
-const COUNTER_GET = "https://api.counterapi.dev/v1/mandeep-portfolio/views/"
 const SESSION_KEY = "pf_counted"
 
 export function VisitorCounter() {
@@ -12,18 +10,19 @@ export function VisitorCounter() {
 
   useEffect(() => {
     const alreadyCounted = sessionStorage.getItem(SESSION_KEY)
-    const url = alreadyCounted ? COUNTER_GET : COUNTER_UP
+    const url = alreadyCounted ? "/api/views" : "/api/views?increment=1"
 
     fetch(url)
       .then((r) => r.json())
       .then((data) => {
-        const value = data?.count ?? data?.value ?? null
-        if (typeof value === "number") {
-          setCount(value)
+        if (typeof data.count === "number") {
+          setCount(data.count)
           if (!alreadyCounted) sessionStorage.setItem(SESSION_KEY, "1")
+        } else {
+          setCount(null)
         }
       })
-      .catch(() => { setCount(null) })
+      .catch(() => setCount(null))
   }, [])
 
   if (count === null) return null
