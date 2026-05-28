@@ -4,7 +4,6 @@ import type { ProfilePage as PageSchema, WithContext } from "schema-dts"
 import { cn } from "@/lib/utils"
 import { About } from "@/features/portfolio/components/about"
 import { Experiences } from "@/features/portfolio/components/experiences"
-import { GitHubContributions } from "@/features/portfolio/components/github-contributions"
 import { Overview } from "@/features/portfolio/components/overview"
 import { ProfileActivityMosaicCover } from "@/features/portfolio/components/profile-activity-mosaic-cover"
 import { ProfileHeader } from "@/features/portfolio/components/profile-header"
@@ -54,7 +53,7 @@ export default function HomePage() {
         <VisitorMap />
         <Separator />
 
-        <GitHubContributions />
+
         <Separator />
       </div>
     </>
