@@ -1,17 +1,18 @@
 import { CollapsibleList } from "@/components/collapsible-list"
 
 import { PROJECTS } from "../../data/projects"
-import { Panel, PanelHeader, PanelTitle, PanelTitleSup } from "../panel"
+import { Panel, PanelHeader, PanelTitleSup } from "../panel"
+import { PanelTitleShimmer } from "../panel-title-shimmer"
 import { ProjectItem } from "./project-item"
 
 export function Projects() {
   return (
     <Panel id="projects">
       <PanelHeader>
-        <PanelTitle>
+        <PanelTitleShimmer>
           Projects
           <PanelTitleSup>[{PROJECTS.length}]</PanelTitleSup>
-        </PanelTitle>
+        </PanelTitleShimmer>
       </PanelHeader>
 
       <CollapsibleList

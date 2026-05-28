@@ -2,13 +2,14 @@ import { Prose } from "@/components/ui/typography"
 import { Markdown } from "@/components/markdown"
 import { USER } from "@/features/portfolio/data/user"
 
-import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel"
+import { Panel, PanelContent, PanelHeader } from "./panel"
+import { PanelTitleShimmer } from "./panel-title-shimmer"
 
 export function About() {
   return (
     <Panel id="about">
       <PanelHeader>
-        <PanelTitle>About</PanelTitle>
+        <PanelTitleShimmer>About</PanelTitleShimmer>
       </PanelHeader>
 
       <PanelContent>

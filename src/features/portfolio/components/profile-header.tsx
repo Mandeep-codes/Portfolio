@@ -5,6 +5,7 @@ import { PokemonFollower } from "@/components/pokemon-follower"
 import { AvatarLightsToggle } from "./avatar-lights-toggle"
 import { FlipSentences } from "./flip-sentences"
 import { MoodStatus } from "./mood-status"
+import { ProfileHeaderName } from "./profile-header-name"
 import { PronounceMyName } from "./pronounce-my-name"
 import { VerifiedIcon } from "./verified-icon"
 
@@ -23,9 +24,7 @@ export function ProfileHeader() {
       <div className="flex flex-1 flex-col relative">
         <div className="border-t border-line">
           <div className="flex items-center gap-2 pl-4 pt-3 pb-1 flex-wrap">
-            <h1 className="text-3xl font-extrabold tracking-[-0.03em] bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
-              {USER.displayName}
-            </h1>
+            <ProfileHeaderName />
 
             <VerifiedIcon
               className="size-4.5 text-info select-none"

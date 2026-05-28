@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel"
+import { Panel, PanelContent, PanelHeader } from "./panel"
+import { PanelTitleShimmer } from "./panel-title-shimmer"
 
 // Mercator projection: lat/lng → SVG x/y (for a 800x400 viewBox)
 function latLngToXY(lat: number, lng: number): [number, number] {
@@ -174,7 +175,7 @@ export function VisitorMap() {
   return (
     <Panel id="visitors" className="before:content-none">
       <PanelHeader>
-        <PanelTitle>Visitor Map</PanelTitle>
+        <PanelTitleShimmer>Visitor Map</PanelTitleShimmer>
       </PanelHeader>
 
       <PanelContent className="pb-2">
