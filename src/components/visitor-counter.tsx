@@ -8,7 +8,7 @@ const COUNTER_GET = "https://api.counterapi.dev/v1/mandeep-portfolio/views/"
 const SESSION_KEY = "pf_counted"
 
 export function VisitorCounter() {
-  const [count, setCount] = useState<number | string>("...")
+  const [count, setCount] = useState<number | null | "...">("...")
 
   useEffect(() => {
     const alreadyCounted = sessionStorage.getItem(SESSION_KEY)
@@ -23,8 +23,10 @@ export function VisitorCounter() {
           if (!alreadyCounted) sessionStorage.setItem(SESSION_KEY, "1")
         }
       })
-      .catch(() => { setCount("?") })
+      .catch(() => { setCount(null) })
   }, [])
+
+  if (count === null) return null
 
   return (
     <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground font-mono">
