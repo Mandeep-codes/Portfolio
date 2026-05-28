@@ -76,9 +76,9 @@ function Separator({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "relative flex h-6 w-full border-x border-line",
-        "before:absolute before:left-[-100vw] before:-z-1 before:h-6 before:w-[200vw]",
-        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[8px_8px] before:[--pattern-foreground:var(--color-line)]/40",
+        "relative flex h-5 w-full border-x border-line",
+        "before:absolute before:left-[-100vw] before:-z-1 before:h-5 before:w-[200vw]",
+        "before:bg-[repeating-linear-gradient(45deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[6px_6px] before:[--pattern-foreground:var(--color-info)]/15",
         className
       )}
     />

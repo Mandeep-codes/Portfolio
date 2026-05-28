@@ -277,7 +277,7 @@
   /* zinc-400 */
   --ring: oklch(0.705 0.015 286.067);
 
-  --info: oklch(0.67 0.17 244.98);
+  --info: oklch(0.60 0.22 293);
 
   /* green-500 */
   --success: oklch(0.723 0.219 149.579);
@@ -285,8 +285,8 @@
   /* red-600 */
   --destructive: oklch(0.577 0.245 27.325);
 
-  /* blue-700 */
-  --link: oklch(0.488 0.243 264.376);
+  /* violet-700 */
+  --link: oklch(0.491 0.27 293);
 
   /* zinc-50 */
   --surface: oklch(0.985 0 0);
@@ -416,8 +416,8 @@
   /* red-700 */
   --destructive: oklch(0.505 0.213 27.518);
 
-  /* blue-500 */
-  --link: oklch(0.623 0.214 259.815);
+  /* violet-400 */
+  --link: oklch(0.702 0.22 293);
 
   /* zinc-900 */
   --surface: oklch(0.21 0.006 285.885);

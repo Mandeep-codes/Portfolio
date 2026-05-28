@@ -9,7 +9,7 @@ import { VerifiedIcon } from "./verified-icon"
 
 export function ProfileHeader() {
   return (
-    <div className="screen-line-bottom flex border-x border-line relative">
+    <div className="screen-line-bottom flex border-x border-line relative bg-gradient-to-br from-violet-50/40 to-transparent dark:from-violet-950/20 dark:to-transparent">
       <div className="shrink-0 border-r border-line">
         <AvatarLightsToggle className="group/avatar-lights-toggle mx-0.5 my-0.75 flex outline-none">
           <AvatarLights
@@ -22,7 +22,7 @@ export function ProfileHeader() {
       <div className="flex flex-1 flex-col relative">
         <div className="border-t border-line">
           <div className="flex items-center gap-2 pl-4 pt-3 pb-1 flex-wrap">
-            <h1 className="text-3xl font-bold tracking-tight">
+            <h1 className="text-3xl font-extrabold tracking-[-0.03em] bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
               {USER.displayName}
             </h1>
 

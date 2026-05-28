@@ -18,11 +18,11 @@ export function ActivityMosaicCover({
 }) {
   return (
     <div
-      className="screen-line-top screen-line-bottom w-full border-x border-line p-0.5 before:-top-px after:-bottom-px"
+      className="screen-line-top screen-line-bottom w-full border-x border-line p-0.5 before:-top-px after:-bottom-px bg-gradient-to-r from-violet-50/30 via-transparent to-violet-50/10 dark:from-violet-950/20 dark:to-transparent"
       aria-hidden
     >
       <ActivityMosaic
-        className="opacity-50"
+        className="opacity-60 mix-blend-multiply dark:mix-blend-screen"
         activities={activities}
         rowCount={rowCount}
         columnCount={columnCount}
