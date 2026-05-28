@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic"
 import Link from "next/link"
-import { FileTextIcon } from "lucide-react"
+import { FileTextIcon, FolderOpenIcon } from "lucide-react"
 
 import { MAIN_NAV } from "@/config/site"
 import { Separator } from "@/components/ui/separator"
@@ -28,6 +28,14 @@ export function SiteHeader() {
         <NavDesktop items={MAIN_NAV} />
 
         <div className="flex items-center gap-2">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Projects"
+          >
+            <FolderOpenIcon className="size-4" />
+            <span className="hidden sm:inline">Projects</span>
+          </Link>
           <Link
             href="/resume"
             className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
