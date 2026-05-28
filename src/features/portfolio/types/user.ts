@@ -46,4 +46,16 @@ export type User = {
   timeZone: string
   /** Profile/site start date in YYYY-MM-DD */
   dateCreated: string
+  /** Book currently being read */
+  currentlyReading?: {
+    title: string
+    author: string
+    url?: string
+  }
+  /** Game or show currently playing/watching */
+  currentlyPlaying?: {
+    title: string
+    platform?: string
+    url?: string
+  }
 }

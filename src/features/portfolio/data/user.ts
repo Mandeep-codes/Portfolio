@@ -66,4 +66,14 @@ When I'm not coding:
     "node.js developer",
   ],
   dateCreated: "2024-01-01",
+  currentlyReading: {
+    title: "The Pragmatic Programmer",
+    author: "David Thomas & Andrew Hunt",
+    url: "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/",
+  },
+  currentlyPlaying: {
+    title: "Elden Ring",
+    platform: "PC",
+    url: "https://en.bandainamcoent.eu/elden-ring/elden-ring",
+  },
 }

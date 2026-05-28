@@ -12,6 +12,7 @@ import type { User } from "@/features/portfolio/types/user"
 
 import { Panel, PanelContent } from "../panel"
 import { CurrentLocalTimeItem } from "./current-local-time-item"
+import { CurrentlyPlayingItem, CurrentlyReadingItem } from "./currently-item"
 import { EmailItem } from "./email-item"
 import {
   IntroItem,
@@ -81,6 +82,10 @@ export function Overview() {
               {USER.pronouns}
             </IntroItemContent>
           </IntroItem>
+
+          <CurrentlyReadingItem />
+
+          <CurrentlyPlayingItem />
         </div>
       </PanelContent>
     </Panel>
