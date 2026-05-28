@@ -4,6 +4,7 @@ import { PokemonFollower } from "@/components/pokemon-follower"
 
 import { AvatarLightsToggle } from "./avatar-lights-toggle"
 import { FlipSentences } from "./flip-sentences"
+import { MoodStatus } from "./mood-status"
 import { PronounceMyName } from "./pronounce-my-name"
 import { VerifiedIcon } from "./verified-icon"
 
@@ -36,6 +37,8 @@ export function ProfileHeader() {
                 namePronunciationUrl={USER.namePronunciationUrl}
               />
             )}
+
+            <MoodStatus />
           </div>
 
           <FlipSentences className="h-12.5 border-t border-line py-1 pl-4 sm:h-9">

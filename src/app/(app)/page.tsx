@@ -11,6 +11,7 @@ import { ProfileHeader } from "@/features/portfolio/components/profile-header"
 import { Projects } from "@/features/portfolio/components/projects"
 import { SocialLinks } from "@/features/portfolio/components/social-links"
 import { TechStack } from "@/features/portfolio/components/tech-stack"
+import { VisitorMap } from "@/features/portfolio/components/visitor-map"
 import { USER } from "@/features/portfolio/data/user"
 
 export const metadata: Metadata = {
@@ -48,6 +49,9 @@ export default function HomePage() {
         <Separator />
 
         <TechStack />
+        <Separator />
+
+        <VisitorMap />
         <Separator />
 
         <GitHubContributions />
