@@ -53,7 +53,7 @@ export default async function ProjectDetailPage({
       {/* Back link */}
       <div className="px-4 pt-4">
         <Link
-          href="/projects"
+          href="/"
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
           <ArrowLeftIcon className="size-3.5" />
