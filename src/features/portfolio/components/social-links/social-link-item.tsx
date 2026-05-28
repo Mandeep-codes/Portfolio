@@ -10,7 +10,7 @@ export function SocialLinkItem({ icon, title, href }: SocialLink) {
   return (
     <div
       className={cn(
-        "relative flex cursor-pointer items-center gap-4 p-4 pr-2 transition-all ease-out hover:bg-violet-50/60 dark:hover:bg-violet-950/20 hover:translate-x-0.5"
+        "relative flex cursor-pointer items-center gap-4 p-4 pr-2 transition-all ease-out hover:bg-blue-50/60 dark:hover:bg-blue-950/20 hover:translate-x-0.5"
       )}
     >
       <div className="relative size-8 shrink-0 [--image-radius:var(--radius-lg)]">

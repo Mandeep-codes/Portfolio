@@ -19,7 +19,7 @@ export function TechStack() {
                   target="_blank"
                   rel="noopener"
                   aria-label={tech.title}
-                  className="flex items-center gap-1.5 rounded-md bg-violet-50/60 px-2 py-0.5 text-xs font-medium tracking-wide text-foreground ring-1 ring-violet-200/80 select-none dark:bg-violet-950/30 dark:ring-violet-800/50 hover:ring-info/50 transition-all [&_img]:size-3.5"
+                  className="flex items-center gap-1.5 rounded-md bg-blue-50/60 px-2 py-0.5 text-xs font-medium tracking-wide text-foreground ring-1 ring-blue-200/80 select-none dark:bg-blue-950/30 dark:ring-blue-800/50 hover:ring-info/50 transition-all [&_img]:size-3.5"
                 >
                   {tech.theme && tech.iconDark ? (
                     <>

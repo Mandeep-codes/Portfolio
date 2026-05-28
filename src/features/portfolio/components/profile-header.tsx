@@ -9,7 +9,7 @@ import { VerifiedIcon } from "./verified-icon"
 
 export function ProfileHeader() {
   return (
-    <div className="screen-line-bottom flex border-x border-line relative bg-gradient-to-br from-violet-50/40 to-transparent dark:from-violet-950/20 dark:to-transparent">
+    <div className="screen-line-bottom flex border-x border-line relative bg-gradient-to-br from-blue-50/40 to-transparent dark:from-blue-950/20 dark:to-transparent">
       <div className="shrink-0 border-r border-line">
         <AvatarLightsToggle className="group/avatar-lights-toggle mx-0.5 my-0.75 flex outline-none">
           <AvatarLights
