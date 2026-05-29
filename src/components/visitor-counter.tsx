@@ -14,9 +14,10 @@ export function VisitorCounter() {
 
     fetch(url)
       .then((r) => r.json())
-      .then((data: { count?: number }) => {
-        if (typeof data.count === "number") {
-          setCount(data.count)
+      .then((data: unknown) => {
+        const d = data as { count?: number }
+        if (typeof d.count === "number") {
+          setCount(d.count)
           if (!alreadyCounted) sessionStorage.setItem(SESSION_KEY, "1")
         } else {
           setCount(null)
