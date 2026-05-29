@@ -41,7 +41,7 @@ export const EXPERIENCES: Experience[] = [
     isCurrentEmployer: true,
   },
   {
-    id: "freelance",
+    id: "research-intern",
     companyName: "Research Intern",
     companyIcon: <BriefcaseBusinessIcon strokeWidth={1.8} />,
     positions: [

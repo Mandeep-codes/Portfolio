@@ -1,6 +1,4 @@
-import { urlToName } from "@/utils/url"
 import {
-  LinkIcon,
   MapPinIcon,
   MarsIcon,
   NonBinaryIcon,
@@ -11,7 +9,6 @@ import { USER } from "@/features/portfolio/data/user"
 import type { User } from "@/features/portfolio/types/user"
 
 import { Panel, PanelContent } from "../panel"
-import { CurrentLocalTimeItem } from "./current-local-time-item"
 import { CurrentlyPlayingItem, CurrentlyReadingItem } from "./currently-item"
 import { EmailItem } from "./email-item"
 import {
@@ -56,25 +53,9 @@ export function Overview() {
             </IntroItemContent>
           </IntroItem>
 
-          <CurrentLocalTimeItem timeZone={USER.timeZone} />
-
           <PhoneItem phoneNumber={USER.phoneNumber} />
 
           <EmailItem email={USER.email} />
-
-          <IntroItem>
-            <IntroItemIcon>
-              <LinkIcon />
-            </IntroItemIcon>
-            <IntroItemContent>
-              <IntroItemLink
-                href={USER.website}
-                aria-label={`Personal website: ${urlToName(USER.website)}`}
-              >
-                {urlToName(USER.website)}
-              </IntroItemLink>
-            </IntroItemContent>
-          </IntroItem>
 
           <IntroItem>
             <IntroItemIcon>{getGenderIcon(USER.gender)}</IntroItemIcon>

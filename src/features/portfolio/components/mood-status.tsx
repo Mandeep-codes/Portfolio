@@ -17,7 +17,7 @@ function getMood(hour: number): Mood {
     return { label: "Coding", color: "text-blue-600 dark:text-blue-400", dotColor: "bg-blue-500" }
   }
   if (hour >= 17 && hour < 22) {
-    return { label: "Building side projects", color: "text-indigo-600 dark:text-indigo-400", dotColor: "bg-indigo-500" }
+    return { label: "Building side projects", color: "text-zinc-700 dark:text-zinc-300", dotColor: "bg-zinc-500" }
   }
   if (hour >= 22 || hour < 1) {
     return { label: "Late night grind", color: "text-amber-600 dark:text-amber-400", dotColor: "bg-amber-500" }
