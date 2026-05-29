@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
       next: { revalidate: 0 },
       redirect: "follow",
     })
-    const data = await res.json()
+    const data = await res.json() as { count?: number; value?: number }
     const count = data?.count ?? data?.value ?? null
     return NextResponse.json({ count })
   } catch {
