@@ -133,7 +133,7 @@ export function VisitorMap() {
     // Load existing countries from localStorage
     let storedCountries: string[] = []
     try {
-      storedCountries = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]")
+      storedCountries = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]") as string[]
     } catch { /* ignore */ }
 
     // Detect current visitor country
@@ -141,8 +141,8 @@ export function VisitorMap() {
       try {
         const res = await fetch("https://ipapi.co/json/", { signal: AbortSignal.timeout(4000) })
         if (res.ok) {
-          const json = await res.json()
-          const code: string = json.country_code
+          const json = await res.json() as { country_code?: string }
+          const code: string = json.country_code ?? ""
           if (code && !storedCountries.includes(code)) {
             storedCountries = [...storedCountries, code]
             localStorage.setItem(STORAGE_KEY, JSON.stringify(storedCountries))
@@ -156,8 +156,8 @@ export function VisitorMap() {
       try {
         const res = await fetch("https://api.countapi.xyz/hit/mandeep-portfolio-v2/visits", { signal: AbortSignal.timeout(5000) })
         if (res.ok) {
-          const json = await res.json()
-          return json.value as number
+          const json = await res.json() as { value?: number }
+          return json.value ?? null
         }
       } catch { /* silent */ }
       return null
