@@ -1,27 +1,49 @@
 import type { Project } from "../types/projects"
+import finvokeImage from "./images/finvoke.png"
+import mailxImage from "./images/mailX.png"
+import omnibriefImage from "./images/omnibrief.png"
+import SketchifyImage from "./images/sketchify.png"
 
 export const PROJECTS: Project[] = [
+  {
+    id: "omnibrief",
+    title: "OmniBrief",
+    period: {
+      start: "2026",
+      end: "2026",
+    },
+    link: "https://github.com/Mandeep-codes/RAG---Ai-video-",
+    skills: [
+      "Python",
+      "ChromaDB",
+      "Flask",
+      "Mistral AI",
+      "LangChain",
+      "OpenAI Whisper",
+      "JavaScript",
+      "React",
+    ],
+    description: `Built a full-stack video intelligence engine that ingests YouTube videos and local files, generating transcripts, summaries, decisions, and action items through AI-powered analysis. Additionally, implemented a RAG-based conversational interface using ChromaDB and LangChain, enabling users to query video content with contextual accuracy.`,
+    logo: omnibriefImage.src,
+    previewImage: omnibriefImage.src,
+    isExpanded: true,
+  },
   {
     id: "finvoke",
     title: "Finvoke – Trade Simulator",
     period: {
       start: "2024",
+      end: "2024",
     },
     link: "https://github.com/Mandeep-codes/FInvoke",
-    skills: [
-      "React",
-      "Express.js",
-      "Node.js",
-      "MongoDB",
-      "Tailwind CSS",
-    ],
+    skills: ["React", "Express.js", "Node.js", "MongoDB", "Tailwind CSS"],
     description: `Full-stack stock trading simulation platform where users can register, log in, manage virtual funds, buy/sell stocks, and track orders and positions through a React dashboard.
 - Virtual portfolio management with real-time order tracking
 - Secure auth system with session management
 - Clean dashboard UI with position & P&L tracking
 `,
-    logo: "https://avatars.githubusercontent.com/u/207450546?v=4",
-    previewImage: "https://opengraph.githubassets.com/1/Mandeep-codes/FInvoke",
+    logo: finvokeImage.src,
+    previewImage: finvokeImage.src,
     isExpanded: true,
   },
   {
@@ -29,6 +51,7 @@ export const PROJECTS: Project[] = [
     title: "MailX – Email Cleaner Desktop App",
     period: {
       start: "2024",
+      end: "2024",
     },
     link: "https://github.com/Mandeep-codes/EmailCleaner",
     skills: [
@@ -45,83 +68,30 @@ export const PROJECTS: Project[] = [
 - Smart inbox analysis and bulk cleanup
 - Built with Java & JavaFX for native performance
 `,
-    logo: "https://avatars.githubusercontent.com/u/207450546?v=4",
-    previewImage: "https://opengraph.githubassets.com/1/Mandeep-codes/EmailCleaner",
+    logo: mailxImage.src,
+    previewImage: mailxImage.src,
     isExpanded: true,
   },
   {
-    id: "dwellnest",
-    title: "DwellNest – Property Renting Platform",
+    id: "Sketchify",
+    title: "Sketchify – AI Image Generation App",
     period: {
       start: "2024",
     },
-    link: "https://github.com/Mandeep-codes/civic-app",
-    skills: [
-      "Node.js",
-      "Express.js",
-      "Cloudinary",
-      "MongoDB",
-      "Multer",
-      "OpenCage API",
-      "Thunderforest API",
-    ],
-    description: `Full-stack backend for listing rental properties. Users upload property details with images, and the app auto-handles location mapping via third-party APIs.
-- Image upload & cloud storage via Cloudinary
-- Automatic geolocation with OpenCage + Thunderforest
-- Clean RESTful API design
-`,
-    logo: "https://avatars.githubusercontent.com/u/207450546?v=4",
-    previewImage: "https://opengraph.githubassets.com/1/Mandeep-codes/civic-app",
-  },
-  {
-    id: "circuitdebugger",
-    title: "CircuitDebugger – Electronic Circuit Debugger",
-    period: {
-      start: "2024",
-    },
-    link: "https://github.com/Mandeep-codes/Debugger",
-    skills: [
-      "Python",
-      "Ollama",
-      "Scikit-learn",
-    ],
-    description: `Python-based GUI tool for debugging electronic circuits using netlist analysis, ML-powered error classification, and an AI chatbot.
-- ML model classifies circuit errors automatically
-- AI chatbot powered by Ollama for guided debugging
-- Dark-themed modern interface
-`,
-    logo: "https://avatars.githubusercontent.com/u/207450546?v=4",
-    previewImage: "https://opengraph.githubassets.com/1/Mandeep-codes/Debugger",
-  },
-  {
-    id: "dashboard",
-    title: "Nivaro – Admin Dashboard",
-    period: {
-      start: "2024",
-    },
-    link: "https://github.com/Mandeep-codes/Dasboard",
+    link: "https://github.com/Mandeep-codes/Sketchify",
     skills: [
       "React",
-      "Tailwind CSS",
       "TypeScript",
+      "Node.js",
+      "Tailwind CSS",
+      "Vite",
+      "Drizzle ORM",
+      "Expo",
+      "Electron",
     ],
-    description: "Clean, modern admin dashboard UI. Live at nivaro-admin.vercel.app.",
-    logo: "https://avatars.githubusercontent.com/u/207450546?v=4",
-    previewImage: "https://opengraph.githubassets.com/1/Mandeep-codes/Dasboard",
-  },
-  {
-    id: "breathingai",
-    title: "BreathingAI",
-    period: {
-      start: "2024",
-    },
-    link: "https://github.com/Mandeep-codes/BreathingAI",
-    skills: [
-      "Python",
-      "AI/ML",
-    ],
-    description: "AI-powered breathing assistance and wellness application.",
-    logo: "https://avatars.githubusercontent.com/u/207450546?v=4",
-    previewImage: "https://opengraph.githubassets.com/1/Mandeep-codes/BreathingAI",
+    description: `Sketchify is an AI-powered sketch-to-art platform where anyone can draw, choose a style, and instantly transform simple doodles into beautiful artwork. With AR visualization, reel generation, creative challenges, and a social community, Sketchify makes creating and sharing art accessible to everyone—regardless of artistic skill.
+`,
+    logo: SketchifyImage.src,
+    previewImage: SketchifyImage.src,
   },
 ]

@@ -1,5 +1,7 @@
 import type { User } from "@/features/portfolio/types/user"
 
+import profilepic from "./images/profile.png"
+
 export const USER: User = {
   firstName: "Mandeep",
   lastName: "Nehra",
@@ -11,26 +13,20 @@ export const USER: User = {
   flipSentences: [
     "I build clean, fast & intuitive apps.",
     "Full Stack Developer",
-    "AI & Data Science Student",
+    "Machine Learning Enthusiast",
     "404 No Bugs Found",
   ],
   address: "Rajasthan, India",
   phoneNumber: "KzkxNjM3NjkzMDQ2MQ==", // base64: +916376930461
   email: "bWFuZGVlcG5laHJhLndvcmtAZ21haWwuY29t", // base64: mandeepnehra.work@gmail.com
   website: "https://mandeep-portfolio-mu.vercel.app",
-  jobTitle: "Full Stack Developer & AI/DS Student",
+  jobTitle: "Full Stack Developer & Machine Learning Enthusiast",
   jobs: [
     {
-      title: "Full Stack Developer",
-      company: "Freelance",
+      title: "Machine Learning Intern",
+      company: "dfccil India",
       website: "",
       experienceId: "freelance",
-    },
-    {
-      title: "B.Tech — AI & Data Science",
-      company: "2nd Year",
-      website: "",
-      experienceId: "education",
     },
   ],
   about: `
@@ -40,19 +36,19 @@ I care deeply about writing code that's not just functional, but maintainable, s
 Every project I build is a reflection of my mindset: learn deeply, build honestly, and improve continuously.
 
 When I'm not coding:
-- ⚡ Exploring new backend and system design concepts
-- 🧠 Solving DSA & real-world problems to sharpen fundamentals
-- 🚀 Building side projects to turn ideas into working products
-- 🎧 Listening to music or unwinding after a solid coding session
+- Building side projects to turn ideas into working products
+- Listening to music or unwinding after a solid coding session
+- Watching anime or gaming to relax and recharge
+- Reading books and novels
 `,
-  avatar: "https://avatars.githubusercontent.com/u/207450546?v=4",
+  avatar: profilepic.src,
   avatarVariants: {
-    lightOff: "https://avatars.githubusercontent.com/u/207450546?v=4",
-    lightOn: "https://avatars.githubusercontent.com/u/207450546?v=4",
-    darkOff: "https://avatars.githubusercontent.com/u/207450546?v=4",
-    darkOn: "https://avatars.githubusercontent.com/u/207450546?v=4",
+    lightOff: profilepic.src,
+    lightOn: profilepic.src,
+    darkOff: profilepic.src,
+    darkOn: profilepic.src,
   },
-  ogImage: "https://avatars.githubusercontent.com/u/207450546?v=4",
+  ogImage: profilepic.src,
   namePronunciationUrl: "",
   timeZone: "Asia/Kolkata",
   keywords: [
@@ -67,9 +63,9 @@ When I'm not coding:
   ],
   dateCreated: "2024-01-01",
   currentlyReading: {
-    title: "The Pragmatic Programmer",
-    author: "David Thomas & Andrew Hunt",
-    url: "https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/",
+    title: "One Piece",
+    author: "Eiichiro Oda",
+    url: "https://onepiece.com",
   },
   currentlyPlaying: {
     title: "Elden Ring",

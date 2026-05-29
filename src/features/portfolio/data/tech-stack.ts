@@ -55,13 +55,6 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Frontend"],
   },
   {
-    key: "motion",
-    title: "Motion",
-    href: "https://motion.dev/",
-    icon: "https://cdn.simpleicons.org/framer/0055FF",
-    categories: ["Frontend"],
-  },
-  {
     key: "nodejs",
     title: "Node.js",
     href: "https://nodejs.org/",
@@ -104,10 +97,17 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Dev Tools"],
   },
   {
-    key: "figma",
-    title: "Figma",
-    href: "https://www.figma.com/",
-    icon: "https://cdn.simpleicons.org/figma/F24E1E",
-    categories: ["Design"],
+    key: "MySQL",
+    title: "MySQL",
+    href: "https://www.mysql.com/",
+    icon: "https://cdn.simpleicons.org/mysql/4479A1",
+    categories: ["Backend & Database"],
+  },
+  {
+    key: "Linux",
+    title: "Linux",
+    href: "https://www.kernel.org/",
+    icon: "https://cdn.simpleicons.org/linux/000000",
+    categories: ["Dev Tools"],
   },
 ]

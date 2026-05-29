@@ -12,19 +12,20 @@ import type { Experience } from "../types/experiences"
 export const EXPERIENCES: Experience[] = [
   {
     id: "freelance",
-    companyName: "Freelance",
+    companyName: "Zenjaura Publishing House",
     companyIcon: <BriefcaseBusinessIcon strokeWidth={1.8} />,
     positions: [
       {
         id: "fullstack",
         title: "Full Stack Developer",
         employmentPeriod: {
-          start: "2023",
+          start: "May 2025",
+          end: "July 2025",
         },
-        employmentType: "Part-time",
+        employmentType: "Internship",
         icon: <CodeXmlIcon />,
         description:
-          "Building secure, high-performance full-stack applications with smooth UX for clients across industries.\n- Custom web apps with clean architecture and optimized databases\n- CI/CD pipelines with GitHub Actions and Docker\n- Payment gateway integrations and third-party API work",
+          "Engineered full-stack features for an e-commerce platform serving 1,000+ monthly active users, developing scalable backend services with Node.js and MongoDB while building responsive user-facing interfaces. Additionally, implemented Redis caching and Nginx reverse proxying to improve application performance and request handling",
         skills: [
           "React",
           "Node.js",
@@ -36,59 +37,57 @@ export const EXPERIENCES: Experience[] = [
         ],
         isExpanded: true,
       },
+    ],
+    isCurrentEmployer: true,
+  },
+  {
+    id: "freelance",
+    companyName: "Research Intern",
+    companyIcon: <BriefcaseBusinessIcon strokeWidth={1.8} />,
+    positions: [
       {
-        id: "devops",
-        title: "DevOps & Cloud",
+        id: "fullstack",
+        title: "Research Intern",
         employmentPeriod: {
-          start: "2024",
+          start: "Jan 2026",
+          end: "April 2026",
         },
-        employmentType: "Part-time",
-        icon: <ServerIcon />,
+        employmentType: "Internship",
+        icon: <CodeXmlIcon />,
         description:
-          "Infrastructure automation, cloud deployments, and performance tuning.\n- AWS/Azure deployments with 24/7 uptime\n- Nginx, load balancing, and server management\n- Lighthouse 90+ scores across projects",
-        skills: [
-          "AWS",
-          "Docker",
-          "Nginx",
-          "GitHub Actions",
-          "Linux",
-        ],
+          "Researched and developed a post-quantum authenticated key agreement protocol for secure Vehicle-to-Infrastructure (V2I) communication in VANETs, incorporating lattice-based cryptographic techniques and efficient reconciliation mechanisms. Additionally, performed formal security verification using AVISPA and conducted NS-3 simulations to evaluate security, latency, and communication efficiency. Co-authored the research study and contributed to protocol design, implementation, and performance analysis.",
+        skills: ["NS-3", "SUMO", "Python", "AVISPA", "Ubuntu"],
+        isExpanded: true,
       },
+    ],
+    isCurrentEmployer: true,
+  },
+  {
+    id: "Internship",
+    companyName: "DRM",
+    companyIcon: <BriefcaseBusinessIcon strokeWidth={1.8} />,
+    positions: [
       {
-        id: "security",
-        title: "Security & Optimization",
+        id: "Machine Learning Intern",
+        title: "Machine Learning Intern",
         employmentPeriod: {
-          start: "2024",
+          start: "May 2025",
+          end: "June 2025",
         },
-        employmentType: "Part-time",
-        icon: <ShieldIcon />,
+        employmentType: "Internship",
+        icon: <CodeXmlIcon />,
         description:
-          "Security hardening and performance optimization for client apps.\n- XSS/SQLI protection, OAuth implementation\n- Code audits and tech debt cleanup\n- SSR, metadata, and structured data for SEO",
+          "Developed and maintained digital solutions for the Divisional Railway Manager (DRM) Office, supporting administrative and operational workflows across multiple railway departments. Additionally, collaborated with stakeholders to streamline data management and reporting processes, improving efficiency in day-to-day operations.",
         skills: [
-          "OAuth",
-          "Security Audits",
-          "SSR",
-          "SEO",
-          "Performance Optimization",
+          "Python",
+          "Machine Learning",
+          "Data Science",
+          "SQL",
+          "Statistics",
+          "NumPy",
+          "Pandas",
         ],
-      },
-      {
-        id: "mobile",
-        title: "Web & Mobile Apps",
-        employmentPeriod: {
-          start: "2023",
-        },
-        employmentType: "Part-time",
-        icon: <SmartphoneIcon />,
-        description:
-          "Cross-platform web and mobile apps bridging design and functionality.\n- React Native/Flutter cross-platform apps\n- PWAs with offline mode and push notifications\n- E-commerce with checkout flows and payment gateways",
-        skills: [
-          "React Native",
-          "Flutter",
-          "PWA",
-          "Razorpay",
-          "Stripe",
-        ],
+        isExpanded: true,
       },
     ],
     isCurrentEmployer: true,
@@ -107,7 +106,7 @@ export const EXPERIENCES: Experience[] = [
         },
         icon: <GraduationCapIcon />,
         description:
-          "Currently in 2nd year at a university in Rajasthan, India.\n- Focused on machine learning, deep learning, data engineering, and software development\n- Active in coding clubs and AI/ML communities\n- Building real-world projects alongside coursework",
+          "Going to be in 3rd year of btech at Gati Shakti Vishwavidhaya.\n- Focused on machine learning, deep learning, data engineering, and software development\n- Active in coding clubs and AI/ML communities\n- Building real-world projects alongside coursework",
         skills: [
           "Python",
           "Machine Learning",

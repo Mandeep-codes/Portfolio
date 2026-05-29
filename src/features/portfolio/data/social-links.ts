@@ -16,7 +16,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     icon: "https://assets.chanhdai.com/images/link-icons/x.webp?v=2",
     title: "X",
-    subtitle: "@mandeep_nehra",
-    href: "https://x.com/mandeep_nehra",
+    subtitle: "@NehraWorkss",
+    href: "https://x.com/NehraWorkss",
   },
 ]

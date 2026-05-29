@@ -1,3 +1,8 @@
+import finvokeImage from "./images/finvoke.png"
+import mailxImage from "./images/mailX.png"
+import omnibriefImage from "./images/omnibrief.png"
+import SketchifyImage from "./images/sketchify.png"
+
 export type ProjectDetail = {
   id: string
   demoUrl?: string
@@ -10,9 +15,7 @@ export const PROJECTS_DETAIL: Record<string, ProjectDetail> = {
   finvoke: {
     id: "finvoke",
     demoUrl: "https://finvoke-1.onrender.com",
-    screenshots: [
-      "https://opengraph.githubassets.com/1/Mandeep-codes/FInvoke",
-    ],
+    screenshots: [finvokeImage.src],
     readme: `
 Finvoke is a full-stack stock trading simulation platform where users can register, log in, manage virtual funds, buy/sell stocks, and track orders and positions through a React dashboard.
 
@@ -38,11 +41,34 @@ React · Vite · Tailwind CSS · Axios · React Router · Node.js · Express · 
 - Trading Dashboard: https://finvoke-2.onrender.com
 `,
   },
+  omnibrief: {
+    id: "omnibrief",
+    demoUrl: "https://x.com/NehraWorkss/status/2059241482356506669?s=20",
+    screenshots: [omnibriefImage.src],
+    readme: `
+OmniBrief is a full-stack video intelligence engine that ingests YouTube videos and local files, generating transcripts, summaries, decisions, and action items through AI-powered analysis. Additionally, implemented a RAG-based conversational interface using ChromaDB and LangChain, enabling users to query video content with contextual accuracy.
+
+## What it does
+- Video ingestion and processing
+- AI-powered transcript generation
+- Summary and action item extraction
+- RAG-based conversational interface
+
+## Key Features
+- **Multi-source Ingestion** — Supports both YouTube URLs and local video file uploads
+- **AI Analysis** — Uses Mistral AI for generating transcripts, summaries, decisions, and action items
+- **RAG Interface** — ChromaDB + LangChain for context-aware video content querying
+- **Full-stack Implementation** — React frontend with Flask backend API
+
+## Tech Stack
+Python · Flask · Mistral AI · ChromaDB · LangChain · OpenAI Whisper · JavaScript · React
+`,
+  },
   mailx: {
     id: "mailx",
-    screenshots: [
-      "https://opengraph.githubassets.com/1/Mandeep-codes/EmailCleaner",
-    ],
+    demoUrl:
+      "https://www.linkedin.com/posts/mandeep-nehra-289224371_java-javafx-gmailapi-activity-7395050244541145089-90ZV?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFwMJokBG3jKaxWbShJQD7ylive9oiRPfeE",
+    screenshots: [mailxImage.src],
     readme: `
 MailX is a powerful desktop application for analyzing, organizing, and cleaning your Gmail inbox — running fully locally while securely connecting to Gmail via OAuth 2.0.
 
@@ -63,96 +89,29 @@ MailX is a powerful desktop application for analyzing, organizing, and cleaning 
 Java 17 · JavaFX · OAuth 2.0 · Gmail API · JSoup · Maven · H2 Database
 `,
   },
-  dwellnest: {
-    id: "dwellnest",
-    screenshots: [
-      "https://opengraph.githubassets.com/1/Mandeep-codes/civic-app",
-    ],
+  sketchify: {
+    id: "sketchify",
+    demoUrl: "https://x.com/NehraWorkss/status/2056965653022830739?s=20",
+    screenshots: [SketchifyImage.src],
     readme: `
-DwellNest is a full-stack backend platform for listing and renting properties. Users upload property details with images, and the app auto-handles location mapping via third-party APIs.
+Sketchify is an AI-powered sketch-to-art platform where anyone can draw, choose a style, and instantly transform simple doodles into beautiful artwork. With AR visualization, reel generation, creative challenges, and a social community, Sketchify makes creating and sharing art accessible to everyone—regardless of artistic skill.
 
 ## What it does
-- Property listing with image uploads and cloud storage
-- Automatic geolocation and map integration
-- RESTful API for property CRUD operations
+- Sketch-to-art transformation with AI
+- AR visualization for immersive experience
+- Reel generation for social sharing
+- Creative challenges for user engagement
+- Social community for feedback and collaboration
 
 ## Key Features
-- **Cloud Storage** — Image upload via Cloudinary + Multer
-- **Geolocation** — Automatic location mapping with OpenCage + Thunderforest APIs
-- **Clean REST API** — Structured routes for all property operations
-- **MongoDB** — Flexible document storage for property listings
+- **AI Art Generation** — Transforms simple sketches into detailed artwork using advanced AI models
+- **AR Visualization** — View your creations in augmented reality for a unique experience
+- **Reel Generation** — Automatically create shareable reels of your art process and final pieces
+- **Creative Challenges** — Participate in themed challenges to inspire creativity and community interaction
+- **Social Community** — Connect with other artists, share feedback, and collaborate on projects
 
 ## Tech Stack
-Node.js · Express.js · MongoDB · Cloudinary · Multer · OpenCage API · Thunderforest API
-`,
-  },
-  circuitdebugger: {
-    id: "circuitdebugger",
-    screenshots: [
-      "https://opengraph.githubassets.com/1/Mandeep-codes/Debugger",
-    ],
-    readme: `
-CircuitDebugger is a standalone GUI application built in Python to assist eSim users in debugging electronic circuits — combining a netlist analyzer, ML-powered error classifier, and AI chatbot.
-
-## What it does
-- Analyze .cir.out netlists for structural errors before simulation
-- ML model classifies error logs and provides actionable fix suggestions
-- AI chatbot via Ollama for real-time circuit debugging help
-
-## Key Features
-- **Netlist Analysis** — Proactively checks for dangling connections, missing .MODEL definitions
-- **ML Classification** — Custom-trained scikit-learn model classifies error types automatically
-- **AI Chatbot** — Connected to Ollama (qwen:4b) for guided interactive debugging
-- **Dark GUI** — Modern sidebar/tab layout with SVG icons
-
-## Tech Stack
-Python · scikit-learn · Ollama · Tkinter · joblib
-`,
-  },
-  dashboard: {
-    id: "dashboard",
-    demoUrl: "https://nivaro-admin.vercel.app",
-    screenshots: [
-      "https://opengraph.githubassets.com/1/Mandeep-codes/Dasboard",
-    ],
-    readme: `
-Nivaro is a clean, modern admin dashboard UI built with React, TypeScript, and Tailwind CSS.
-
-## What it does
-- Full admin dashboard interface with clean UI components
-- Live at nivaro-admin.vercel.app
-
-## Key Features
-- **Modern Design** — Clean layouts with responsive components
-- **TypeScript** — Fully typed for reliability
-- **Tailwind CSS** — Utility-first styling system
-
-## Tech Stack
-React · TypeScript · Tailwind CSS · Vite
-`,
-  },
-  breathingai: {
-    id: "breathingai",
-    screenshots: [
-      "https://opengraph.githubassets.com/1/Mandeep-codes/BreathingAI",
-    ],
-    readme: `
-BreathAI is an end-to-end AI system that detects 6 respiratory conditions from breathing audio using a hybrid CNN-LSTM deep neural network, with a 3D interactive React Three Fiber frontend.
-
-## What it does
-- Records 5–30 seconds of breathing audio via browser mic
-- Processes through a quality gate (SNR, clipping checks)
-- Classifies into 6 conditions: Bronchiectasis, Bronchiolitis, COPD, Healthy, Pneumonia, URTI
-
-## Key Features
-- **CNN-LSTM Hybrid** — Mel spectrograms for spatial analysis + Bi-LSTM for temporal patterns
-- **3D Frontend** — Animated 3D lung model, DNA helix, live waveform with React Three Fiber
-- **FastAPI Backend** — REST API with Swagger docs at /docs
-- **Quality Gate** — SNR and clipping validation before inference
-- **Risk Assessment** — Color-coded 3D risk orb with confidence scores
-
-## Tech Stack
-Python · PyTorch · FastAPI · librosa · React 18 · Three.js (R3F) · Zustand · Framer Motion · Vite
+React · TypeScript · Node.js · Tailwind CSS · Vite · Drizzle ORM · Expo · Electron
 `,
   },
 }
