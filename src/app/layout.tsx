@@ -78,17 +78,17 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "https://avatars.githubusercontent.com/u/207450546?v=5&s=32",
+        url: SITE_INFO.ogImage,
         sizes: "32x32",
       },
       {
-        url: "https://avatars.githubusercontent.com/u/207450546?v=5",
+        url: SITE_INFO.ogImage,
         sizes: "any",
         type: "image/png",
       },
     ],
     apple: {
-      url: "https://avatars.githubusercontent.com/u/207450546?v=5",
+      url: SITE_INFO.ogImage,
       type: "image/png",
       sizes: "180x180",
     },
