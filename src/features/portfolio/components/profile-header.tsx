@@ -46,7 +46,7 @@ export function ProfileHeader() {
         </div>
 
         {/* Pokemon in bottom-right corner of the header box */}
-        <div className="absolute bottom-2 right-3 pointer-events-none select-none">
+        <div className="absolute bottom-16 right-3 pointer-events-none select-none sm:bottom-2">
           <PokemonFollower />
         </div>
       </div>
