@@ -130,14 +130,19 @@ export function VisitorMap() {
 
     const STORAGE_KEY = "mnp_visitor_countries"
 
-    // Load existing countries from localStorage (seed IN, US, GB, SG as baseline)
+    // Load existing countries from localStorage — always merge with seed baseline
     const SEED_COUNTRIES = ["IN", "US", "GB", "SG"]
     let storedCountries: string[] = []
     try {
       const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]") as string[]
-      storedCountries = stored.length > 0 ? stored : SEED_COUNTRIES
+      // Merge stored + seed so seed countries always appear
+      const merged = Array.from(new Set([...SEED_COUNTRIES, ...stored]))
+      storedCountries = merged
+      // Persist merged back so future loads are consistent
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(merged))
     } catch {
       storedCountries = SEED_COUNTRIES
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED_COUNTRIES))
     }
 
     // Detect current visitor country
