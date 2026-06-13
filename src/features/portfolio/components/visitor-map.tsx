@@ -130,11 +130,15 @@ export function VisitorMap() {
 
     const STORAGE_KEY = "mnp_visitor_countries"
 
-    // Load existing countries from localStorage
+    // Load existing countries from localStorage (seed IN, US, GB, SG as baseline)
+    const SEED_COUNTRIES = ["IN", "US", "GB", "SG"]
     let storedCountries: string[] = []
     try {
-      storedCountries = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]") as string[]
-    } catch { /* ignore */ }
+      const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]") as string[]
+      storedCountries = stored.length > 0 ? stored : SEED_COUNTRIES
+    } catch {
+      storedCountries = SEED_COUNTRIES
+    }
 
     // Detect current visitor country
     const detectAndStore = async () => {

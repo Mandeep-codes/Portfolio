@@ -33,7 +33,7 @@ export async function GET() {
     status: 200,
     headers: {
       "Content-Type": "text/x-vcard",
-      "Content-Disposition": `attachment; filename=${USER.username}-vcard.vcf`,
+      "Content-Disposition": `attachment; filename=Mandeep-vcard.vcf`,
     },
   })
 }

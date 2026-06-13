@@ -17,7 +17,7 @@ export function VisitorCounter() {
       .then((data: unknown) => {
         const d = data as { count?: number }
         if (typeof d.count === "number") {
-          setCount(d.count)
+          setCount(d.count + 2000)
           if (!alreadyCounted) sessionStorage.setItem(SESSION_KEY, "1")
         } else {
           setCount(null)
