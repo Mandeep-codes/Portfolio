@@ -8,8 +8,7 @@ const ScrollToTop = dynamic(() =>
 )
 
 const DigitalTwin = dynamic(() =>
-  import("@/components/digital-twin").then((mod) => mod.DigitalTwin),
-  { ssr: false }
+  import("@/components/digital-twin").then((mod) => mod.DigitalTwin)
 )
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
