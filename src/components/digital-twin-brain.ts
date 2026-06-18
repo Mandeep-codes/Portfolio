@@ -1,5 +1,5 @@
-// Digital Twin — rule-based knowledge engine (no API)
-// All answers derived from portfolio data
+// Digital Twin — keyword-scoring knowledge engine (no API)
+// Scores every rule by keyword hits → picks best match
 
 export type Message = {
   role: "user" | "twin"
@@ -17,10 +17,13 @@ const KB = {
   xUrl: "https://x.com/NehraWorkss",
   github: "github.com/Mandeep-codes",
   linkedin: "linkedin.com/in/mandeep-nehra-289224371",
-  education: "B.Tech in Artificial Intelligence & Data Science at Gati Shakti Vishwavidyalaya (GSV), Vadodara — graduating 2028. Going into 3rd year.",
+  education:
+    "B.Tech in Artificial Intelligence & Data Science at Gati Shakti Vishwavidyalaya (GSV), Vadodara — graduating 2028. Currently in 3rd year.",
   bio: "Full Stack Developer & Machine Learning Enthusiast. Obsessed with building clean, fast, and intuitive applications — from responsive React interfaces to reliable backend systems.",
-  about: "I care deeply about writing code that's not just functional, but maintainable, scalable, and user-focused. Every project I build is a reflection of my mindset: learn deeply, build honestly, improve continuously.",
-  hobbies: "Building side projects, listening to music, watching anime (currently One Piece), gaming (currently playing Elden Ring on PC), reading books & novels.",
+  about:
+    "I care deeply about writing code that's not just functional, but maintainable, scalable, and user-focused. Every project I build is a reflection of my mindset: learn deeply, build honestly, improve continuously.",
+  hobbies:
+    "Building side projects, listening to music, watching anime (currently One Piece), gaming (currently playing Elden Ring on PC), reading books & novels.",
   currentlyReading: "One Piece by Eiichiro Oda",
   currentlyPlaying: "Elden Ring on PC",
   jobTitle: "Full Stack Developer & Machine Learning Enthusiast",
@@ -88,110 +91,156 @@ const KB = {
   ],
 }
 
-// ─── Response rules ───────────────────────────────────────────────────────────
+// ─── Scoring engine ───────────────────────────────────────────────────────────
 
 type Rule = {
-  patterns: RegExp[]
+  keywords: string[]   // any word match scores +1
+  boost?: string[]     // strong signal words score +3
   response: () => string
 }
+
+function normalize(text: string) {
+  return text.toLowerCase().replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim()
+}
+
+function score(input: string, rule: Rule): number {
+  const words = new Set(input.split(" "))
+  let s = 0
+  for (const kw of rule.keywords) {
+    if (words.has(kw) || input.includes(kw)) s += 1
+  }
+  for (const kw of rule.boost ?? []) {
+    if (words.has(kw) || input.includes(kw)) s += 3
+  }
+  return s
+}
+
+// ─── Rules ────────────────────────────────────────────────────────────────────
 
 const RULES: Rule[] = [
   // Greetings
   {
-    patterns: [/^(hi|hey|hello|sup|yo|howdy|what'?s up|hiya)/i],
+    keywords: ["hi", "hey", "hello", "sup", "yo", "howdy", "hiya", "helo", "heya"],
+    boost: ["hi", "hey", "hello"],
     response: () =>
-      `Hey! 👾 I'm Deep's digital twin. I know basically everything about him — ask me anything!`,
+      `Hey! 👾 I'm Deep's digital twin. Ask me anything about him — projects, skills, experience, or how to reach him.`,
   },
 
-  // Who are you / what are you
+  // Who / what is Deep / you
   {
-    patterns: [/who are you|what are you|are you (a )?bot|are you (an )?ai|are you real|are you mandeep/i],
+    keywords: ["who", "what", "are", "you", "deep", "mandeep", "bot", "ai", "real", "twin", "this"],
+    boost: ["who", "what are you", "who are you", "who is"],
     response: () =>
-      `I'm a pixel-art digital twin of **Deep** — a full-stack dev & ML enthusiast from Rajasthan, India. Ask me about his projects, skills, experience, or anything else!`,
+      `I'm a pixel-art digital twin of **Deep** (Mandeep Nehra) — Full Stack Developer & ML Enthusiast from Rajasthan, India. Ask me anything about him!`,
   },
 
   // Name
   {
-    patterns: [/what('?s| is) (your|his) name|who is (he|this|deep|mandeep)/i],
+    keywords: ["name", "called", "call", "full name", "your name", "his name"],
+    boost: ["name"],
+    response: () => `He goes by **Deep** — full name Mandeep Nehra. 🇮🇳`,
+  },
+
+  // About / bio / intro
+  {
+    keywords: ["about", "bio", "describe", "tell", "introduction", "intro", "himself", "yourself", "background", "summary"],
+    boost: ["about", "tell me", "describe"],
     response: () =>
-      `I'm **Deep** (Mandeep Nehra). Full Stack Developer & ML Enthusiast from Rajasthan, India. 🇮🇳`,
+      `${KB.bio}\n\n${KB.about}\n\nCurrently in 3rd year of B.Tech AI & DS at GSV Vadodara, graduating 2028.`,
+  },
+
+  // What does he do
+  {
+    keywords: ["do", "does", "work", "role", "occupation", "profession", "field", "specializ", "focus"],
+    boost: ["what do you do", "what does he do", "what do you work"],
+    response: () =>
+      `Deep is a **Full Stack Developer & ML Enthusiast**.\n\nHe builds web apps (React, Node.js), works with AI/ML (LangChain, TensorFlow, ChromaDB), and loves shipping things from scratch. Check his projects for proof!`,
   },
 
   // Location
   {
-    patterns: [/where (are|do) (you|he) (live|from|based)|location|city|country|india/i],
+    keywords: ["where", "from", "live", "based", "location", "city", "country", "place", "india", "rajasthan", "vadodara", "gujarat"],
+    boost: ["where", "from", "location"],
     response: () =>
-      `Based in Rajasthan, India. Currently studying at GSV Vadodara (Gujarat) too.`,
+      `Based in **Rajasthan, India** 🇮🇳. Currently studying at GSV Vadodara (Gujarat).`,
   },
 
-  // Education
+  // Education / college
   {
-    patterns: [/education|college|university|degree|btech|b\.tech|gsv|gati shakti|studying|student|graduating|year/i],
+    keywords: ["education", "college", "university", "degree", "btech", "b tech", "gsv", "gati", "shakti", "studying", "student", "graduating", "year", "course", "major", "branch", "ai", "data science"],
+    boost: ["education", "college", "university", "studying", "degree"],
     response: () =>
-      `${KB.education} Focused on ML, deep learning, data engineering & software dev. Active in coding clubs and AI/ML communities.`,
+      `📚 ${KB.education}\n\nFocused on ML, deep learning, data engineering & full-stack dev. Active in coding clubs and AI/ML communities.`,
   },
 
   // Projects — all
   {
-    patterns: [/projects?|built|made|created|portfolio|work|what have you (built|made|done)/i],
+    keywords: ["project", "projects", "built", "build", "made", "created", "work", "portfolio", "show", "apps", "what have", "what did"],
+    boost: ["projects", "built", "portfolio", "show me"],
     response: () => {
       const list = KB.projects
         .map((p) => `• **${p.name}** — ${p.desc.split(".")[0]}.`)
         .join("\n")
-      return `Here's what I've built:\n\n${list}\n\nAsk about any specific one for more details!`
+      return `Here's what Deep has built:\n\n${list}\n\nAsk about any specific one for more details!`
     },
   },
 
   // OmniBrief
   {
-    patterns: [/omnibrief|video intel|rag.*video|youtube.*ai|langchain/i],
+    keywords: ["omnibrief", "omni", "brief", "video", "youtube", "rag", "langchain", "chroma", "transcript", "summary", "whisper"],
+    boost: ["omnibrief", "video intelligence"],
     response: () => {
       const p = KB.projects[0]!
-      return `**${p.name}** — ${p.desc}\n\nStack: ${p.tech}\n🔗 ${p.link}`
+      return `**${p.name}** — ${p.desc}\n\n🛠 Stack: ${p.tech}\n🔗 ${p.link}`
     },
   },
 
   // Finvoke
   {
-    patterns: [/finvoke|trade|stock|trading|simulator/i],
+    keywords: ["finvoke", "trade", "stock", "trading", "simulator", "invest", "finance", "market", "portfolio", "buy", "sell"],
+    boost: ["finvoke", "trading", "stock"],
     response: () => {
       const p = KB.projects[1]!
-      return `**${p.name}** — ${p.desc}\n\nStack: ${p.tech}\n🔗 ${p.link}`
+      return `**${p.name}** — ${p.desc}\n\n🛠 Stack: ${p.tech}\n🔗 ${p.link}`
     },
   },
 
   // MailX
   {
-    patterns: [/mailx|email cleaner|gmail|inbox|javafx|desktop app/i],
+    keywords: ["mailx", "mail", "email", "gmail", "inbox", "cleaner", "javafx", "java", "desktop", "oauth"],
+    boost: ["mailx", "email cleaner", "gmail"],
     response: () => {
       const p = KB.projects[2]!
-      return `**${p.name}** — ${p.desc}\n\nStack: ${p.tech}\n🔗 ${p.link}`
+      return `**${p.name}** — ${p.desc}\n\n🛠 Stack: ${p.tech}\n🔗 ${p.link}`
     },
   },
 
   // Sketchify
   {
-    patterns: [/sketchify|sketch|ai.*image|image.*gen|doodle|ar.*visual/i],
+    keywords: ["sketchify", "sketch", "drawing", "draw", "doodle", "image generation", "image gen", "ar", "art", "creative"],
+    boost: ["sketchify", "sketch to art"],
     response: () => {
       const p = KB.projects[3]!
-      return `**${p.name}** — ${p.desc}\n\nStack: ${p.tech}\n🔗 ${p.link}`
+      return `**${p.name}** — ${p.desc}\n\n🛠 Stack: ${p.tech}\n🔗 ${p.link}`
     },
   },
 
   // Skills / tech stack
   {
-    patterns: [/skills?|tech(nolog|nique|stack)?|stack|know|languages?|tools?|frameworks?|what can you (code|build|use)/i],
+    keywords: ["skill", "skills", "tech", "stack", "technology", "technologies", "language", "languages", "framework", "tools", "know", "use", "react", "node", "python", "javascript", "typescript", "ml", "ai"],
+    boost: ["skills", "tech stack", "what can you use", "what do you know"],
     response: () => {
       const lines = Object.entries(KB.techStack)
         .map(([cat, items]) => `**${cat}:** ${items.join(", ")}`)
         .join("\n")
-      return `My tech stack:\n\n${lines}`
+      return `Deep's tech stack:\n\n${lines}`
     },
   },
 
   // Experience / internships
   {
-    patterns: [/experience|intern(ship)?|work(ed|ing)?|job|company|companies|professional/i],
+    keywords: ["experience", "intern", "internship", "worked", "working", "job", "company", "companies", "professional", "career", "past", "history"],
+    boost: ["experience", "internship", "worked at", "work experience"],
     response: () => {
       const list = KB.experience
         .map((e) => `• **${e.role}** @ ${e.company} (${e.period})\n  ${e.desc.split(".")[0]}.`)
@@ -202,108 +251,119 @@ const RULES: Rule[] = [
 
   // Certifications
   {
-    patterns: [/cert(ificate|ification)?s?|aws|tensorflow|coursera|deeplearning|meta.*cert|full stack open/i],
+    keywords: ["cert", "certify", "certificate", "certification", "aws", "tensorflow", "coursera", "deeplearning", "meta", "stanford", "helsinki"],
+    boost: ["certifications", "certified"],
     response: () => {
       const list = KB.certifications.map((c) => `• ${c}`).join("\n")
-      return `Certifications I've earned:\n\n${list}`
+      return `Certifications Deep has earned:\n\n${list}`
     },
   },
 
-  // Social links / contact
+  // Contact / reach / email / social
   {
-    patterns: [/contact|reach|email|mail|dm|message|twitter|x\.com|linkedin|github|social/i],
+    keywords: ["contact", "reach", "email", "mail", "dm", "message", "connect", "twitter", "x", "linkedin", "github", "social", "find", "link", "links", "where can i"],
+    boost: ["contact", "reach out", "email", "how to contact", "get in touch"],
     response: () =>
-      `Best ways to reach Deep:\n\n• ✉️ **Email:** ${KB.email}\n• 🐦 **X (Twitter):** ${KB.x} — ${KB.xUrl}\n• 💼 **LinkedIn:** ${KB.linkedin}\n• 🐙 **GitHub:** ${KB.github}`,
+      `Best ways to reach Deep:\n\n• ✉️ **Email:** ${KB.email}\n• 🐦 **X (Twitter):** ${KB.x} → ${KB.xUrl}\n• 💼 **LinkedIn:** ${KB.linkedin}\n• 🐙 **GitHub:** ${KB.github}`,
+  },
+
+  // GitHub specifically
+  {
+    keywords: ["github", "repo", "repository", "code", "open source", "source code"],
+    boost: ["github", "repo"],
+    response: () =>
+      `All code lives here → 🐙 **${KB.github}**\n\nProjects: OmniBrief, Finvoke, MailX, Sketchify and more.`,
   },
 
   // Hobbies / interests
   {
-    patterns: [/hobbies|interests?|free time|outside.*coding|besides.*coding|fun|relax|anime|manga|gaming|game|music|reading|book/i],
+    keywords: ["hobby", "hobbies", "interest", "free time", "besides", "outside", "fun", "relax", "anime", "manga", "gaming", "game", "music", "reading", "book", "life", "personal"],
+    boost: ["hobbies", "interests", "free time", "outside of coding"],
     response: () =>
-      `Outside of coding, I'm into:\n\n• 📖 Currently reading: **${KB.currentlyReading}**\n• 🎮 Currently playing: **${KB.currentlyPlaying}**\n• 🎵 Listening to music to unwind\n• 💤 Watching anime & reading manga\n• 📚 Reading books and novels`,
+      `Outside of coding, Deep is into:\n\n• 📖 Currently reading: **${KB.currentlyReading}**\n• 🎮 Currently playing: **${KB.currentlyPlaying}**\n• 🎵 Listening to music\n• 🎌 Watching anime\n• 📚 Reading novels`,
   },
 
-  // One Piece
+  // One Piece / anime
   {
-    patterns: [/one piece|luffy|eiichiro|manga/i],
+    keywords: ["one piece", "luffy", "anime", "manga", "naruto", "eiichiro", "otaku"],
+    boost: ["one piece", "anime"],
     response: () =>
-      `Big One Piece fan! Currently reading it. Best manga ever made, don't @ me. 🏴‍☠️`,
+      `Big One Piece fan! Currently reading it. Best manga ever made, don't @ him. 🏴‍☠️`,
   },
 
-  // Elden Ring / gaming
+  // Gaming / Elden Ring
   {
-    patterns: [/elden ring|gaming|gamer|souls.?like|fromsoft/i],
+    keywords: ["elden ring", "game", "gaming", "gamer", "souls", "fromsoft", "pc", "play", "playing"],
+    boost: ["elden ring", "gaming"],
     response: () =>
       `Currently grinding **Elden Ring** on PC. Pain and suffering in the best way. 🗡️`,
   },
 
-  // About / bio
+  // Hire / opportunity
   {
-    patterns: [/about (you|him|deep|mandeep)|who is deep|tell me about|describe yourself|bio/i],
+    keywords: ["hire", "hiring", "job", "opportunity", "open to", "available", "freelance", "collab", "collaboration", "work with", "recruit"],
+    boost: ["hire", "hiring", "freelance", "collab"],
     response: () =>
-      `${KB.bio}\n\n${KB.about}\n\nCurrently in 3rd year of B.Tech AI & DS at GSV Vadodara, graduating 2028.`,
-  },
-
-  // Job / hire
-  {
-    patterns: [/hire|hiring|job|opportunity|open to work|available|freelance|collab/i],
-    response: () =>
-      `Deep is open to interesting opportunities, collabs, and freelance work!\n\nBest way to reach out:\n• ✉️ ${KB.email}\n• 🐦 ${KB.x} on X`,
+      `Deep is open to interesting opportunities, collabs, and freelance work!\n\n• ✉️ ${KB.email}\n• 🐦 ${KB.x} on X`,
   },
 
   // Age
   {
-    patterns: [/how old|age|born|birth/i],
+    keywords: ["age", "old", "born", "birth", "year old", "how old"],
+    boost: ["how old", "age"],
     response: () =>
-      `Deep is a B.Tech student graduating in 2028 — so doing the math, early 20s. 😄`,
+      `Deep is a B.Tech student graduating in 2028 — early 20s. 😄`,
   },
 
-  // GitHub
+  // Thanks / compliment
   {
-    patterns: [/github|repo|open.?source|code/i],
-    response: () =>
-      `All code lives here → 🐙 **${KB.github}**\n\nProjects include OmniBrief, Finvoke, MailX, Sketchify and more.`,
-  },
-
-  // Thanks
-  {
-    patterns: [/thank(s| you)|thx|ty|appreciate|nice|cool|awesome|great|good/i],
+    keywords: ["thank", "thanks", "thx", "ty", "appreciate", "nice", "cool", "awesome", "great", "good", "helpful", "love", "amazing"],
+    boost: ["thank", "thanks"],
     response: () =>
       `Anytime! 😄 Anything else you want to know about Deep?`,
   },
 
   // Bye
   {
-    patterns: [/bye|goodbye|cya|see you|later|peace|gotta go/i],
+    keywords: ["bye", "goodbye", "cya", "see you", "later", "peace", "gotta go", "ttyl", "farewell"],
+    boost: ["bye", "goodbye"],
     response: () =>
       `Later! 👾 Feel free to drop Deep a message at ${KB.email} or ${KB.x} on X.`,
   },
 ]
 
-// ─── Fallback responses ───────────────────────────────────────────────────────
+// ─── Fallbacks ────────────────────────────────────────────────────────────────
 
 const FALLBACKS = [
-  `Hmm, not sure about that one. For anything specific, reach out to Deep directly:\n\n• ✉️ ${KB.email}\n• 🐦 ${KB.x} on X`,
-  `That's outside my pixel-brain's knowledge! Hit up Deep directly:\n\n• ✉️ ${KB.email}\n• 🐦 ${KB.x} on X`,
-  `I don't have info on that. Deep's the real expert — DM him:\n\n• 🐦 ${KB.x} on X\n• ✉️ ${KB.email}`,
+  `Hmm, not sure about that. Try asking about his **projects**, **skills**, **experience**, or how to **contact** him!`,
+  `That's outside my pixel-brain! You can ask about Deep's work, tech stack, internships, certs, or hobbies.`,
+  `I don't have that info. But Deep is reachable at **${KB.email}** or **${KB.x}** on X if you need more!`,
 ]
 
-// ─── Engine ───────────────────────────────────────────────────────────────────
+// ─── Main engine ─────────────────────────────────────────────────────────────
 
 export function getReply(input: string): string {
-  const trimmed = input.trim()
-  if (!trimmed) return `Say something! Ask me about Deep's projects, skills, experience...`
+  const norm = normalize(input)
+  if (!norm) return `Say something! Ask me about Deep's projects, skills, experience...`
+
+  let bestRule: Rule | null = null
+  let bestScore = 0
 
   for (const rule of RULES) {
-    for (const pattern of rule.patterns) {
-      if (pattern.test(trimmed)) {
-        return rule.response()
-      }
+    const s = score(norm, rule)
+    if (s > bestScore) {
+      bestScore = s
+      bestRule = rule
     }
   }
 
-  // Fallback — cycle deterministically
-  const idx = (trimmed.length + trimmed.charCodeAt(0)) % FALLBACKS.length
+  // Require at least 1 keyword hit
+  if (bestScore >= 1 && bestRule) {
+    return bestRule.response()
+  }
+
+  // Fallback
+  const idx = (norm.length + norm.charCodeAt(0)) % FALLBACKS.length
   return FALLBACKS[idx]!
 }
 
