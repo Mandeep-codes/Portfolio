@@ -7,6 +7,11 @@ const ScrollToTop = dynamic(() =>
   import("@/components/scroll-to-top").then((mod) => mod.ScrollToTop)
 )
 
+const DigitalTwin = dynamic(() =>
+  import("@/components/digital-twin").then((mod) => mod.DigitalTwin),
+  { ssr: false }
+)
+
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="group/layout">
@@ -19,6 +24,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       />
       <SiteBottomNav />
       <ScrollToTop />
+      <DigitalTwin />
     </div>
   )
 }
