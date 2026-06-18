@@ -107,14 +107,14 @@ const RULES: Rule[] = [
   {
     patterns: [/who are you|what are you|are you (a )?bot|are you (an )?ai|are you real|are you mandeep/i],
     response: () =>
-      `I'm a pixel-art digital twin of Mandeep (Deep) Nehra — a full-stack dev & ML enthusiast from Rajasthan, India. Ask me about his projects, skills, experience, or anything else!`,
+      `I'm a pixel-art digital twin of **Deep** — a full-stack dev & ML enthusiast from Rajasthan, India. Ask me about his projects, skills, experience, or anything else!`,
   },
 
   // Name
   {
     patterns: [/what('?s| is) (your|his) name|who is (he|this|deep|mandeep)/i],
     response: () =>
-      `I'm Mandeep Nehra — goes by "Deep". Full Stack Developer & ML Enthusiast from Rajasthan, India. 🇮🇳`,
+      `I'm **Deep** (Mandeep Nehra). Full Stack Developer & ML Enthusiast from Rajasthan, India. 🇮🇳`,
   },
 
   // Location
@@ -307,4 +307,4 @@ export function getReply(input: string): string {
   return FALLBACKS[idx]!
 }
 
-export const GREETING = `Hey there! 👾 I'm a pixel-art digital twin of **Mandeep (Deep) Nehra**.\n\nAsk me anything — his projects, skills, experience, or how to reach him!`
+export const GREETING = `Hey there! 👾 I'm a pixel-art digital twin of **Deep**.\n\nAsk me anything — his projects, skills, experience, or how to reach him!`

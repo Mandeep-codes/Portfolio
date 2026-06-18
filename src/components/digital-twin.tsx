@@ -197,16 +197,16 @@ function ChatMessage({ msg }: { msg: Message }) {
       <div
         style={{
           maxWidth: "82%",
-          background: isUser ? "#3b82f6" : "#1e293b",
-          color: "#f8fafc",
+          background: isUser ? "var(--primary)" : "var(--muted, #f1f5f9)",
+          color: isUser ? "var(--primary-foreground)" : "var(--foreground)",
           borderRadius: isUser ? "14px 14px 4px 14px" : "14px 14px 14px 4px",
           padding: "8px 12px",
           fontSize: 12,
           lineHeight: 1.6,
           whiteSpace: "pre-wrap",
           wordBreak: "break-word",
-          fontFamily: "'DM Sans', system-ui, sans-serif",
-          border: isUser ? "none" : "1px solid #334155",
+          fontFamily: "inherit",
+          border: isUser ? "none" : "1px solid var(--border)",
         }}
       >
         {renderContent(msg.content)}
@@ -337,22 +337,22 @@ export function DigitalTwin() {
           style={{
             width: 296,
             height: 400,
-            background: "#0a0f1a",
-            border: "1px solid #1e3a5f",
+            background: "var(--background)",
+            border: "1px solid var(--border)",
             borderRadius: "16px 16px 16px 4px",
             marginBottom: 8,
             display: "flex",
             flexDirection: "column",
             overflow: "hidden",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.15)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(59,130,246,0.1)",
           }}
         >
           {/* Header */}
           <div
             style={{
               padding: "10px 14px",
-              background: "#0f172a",
-              borderBottom: "1px solid #1e3a5f",
+              background: "var(--surface, var(--background))",
+              borderBottom: "1px solid var(--line, var(--border))",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -370,17 +370,17 @@ export function DigitalTwin() {
               />
               <span
                 style={{
-                  color: "#f8fafc",
+                  color: "var(--foreground)",
                   fontSize: 13,
                   fontWeight: 600,
-                  fontFamily: "'DM Sans', system-ui, sans-serif",
+                  fontFamily: "inherit",
                 }}
               >
                 Chat with Deep
               </span>
               <span
                 style={{
-                  color: "#64748b",
+                  color: "var(--muted-foreground, #64748b)",
                   fontSize: 10,
                   fontFamily: "monospace",
                 }}
@@ -393,7 +393,7 @@ export function DigitalTwin() {
               style={{
                 background: "transparent",
                 border: "none",
-                color: "#64748b",
+                color: "var(--muted-foreground, #64748b)",
                 cursor: "pointer",
                 fontSize: 16,
                 lineHeight: 1,
@@ -413,7 +413,7 @@ export function DigitalTwin() {
               overflowY: "auto",
               padding: "12px 12px 4px",
               scrollbarWidth: "thin",
-              scrollbarColor: "#1e3a5f transparent",
+              scrollbarColor: "var(--border) transparent",
             }}
           >
             {messages.map((msg, i) => (
@@ -423,9 +423,9 @@ export function DigitalTwin() {
               <div style={{ display: "flex", justifyContent: "flex-start", marginBottom: 10 }}>
                 <div
                   style={{
-                    background: "#1e293b",
+                    background: "var(--muted, #1e293b)",
                     borderRadius: "14px 14px 14px 4px",
-                    border: "1px solid #334155",
+                    border: "1px solid var(--border)",
                   }}
                 >
                   <TypingDots />
@@ -433,7 +433,7 @@ export function DigitalTwin() {
               </div>
             )}
             {isMaxed && !isTyping && (
-              <div style={{ textAlign: "center", color: "#64748b", fontSize: 11, marginTop: 8, fontFamily: "monospace" }}>
+              <div style={{ textAlign: "center", color: "var(--muted-foreground, #64748b)", fontSize: 11, marginTop: 8, fontFamily: "monospace" }}>
                 That's all I've got! DM Deep at @NehraWorkss on X 🐦
               </div>
             )}
@@ -444,10 +444,10 @@ export function DigitalTwin() {
           <div
             style={{
               padding: "8px 10px",
-              borderTop: "1px solid #1e3a5f",
+              borderTop: "1px solid var(--line, var(--border))",
               display: "flex",
               gap: 8,
-              background: "#0a0f1a",
+              background: "var(--background)",
             }}
           >
             <input
@@ -459,13 +459,13 @@ export function DigitalTwin() {
               disabled={isMaxed || isTyping}
               style={{
                 flex: 1,
-                background: "#0f172a",
-                border: "1px solid #1e3a5f",
+                background: "var(--muted, #f1f5f9)",
+                border: "1px solid var(--border)",
                 borderRadius: 10,
                 padding: "7px 12px",
-                color: "#f8fafc",
+                color: "var(--foreground)",
                 fontSize: 12,
-                fontFamily: "'DM Sans', system-ui, sans-serif",
+                fontFamily: "inherit",
                 outline: "none",
               }}
             />
@@ -473,13 +473,13 @@ export function DigitalTwin() {
               onClick={sendMessage}
               disabled={!input.trim() || isMaxed || isTyping}
               style={{
-                background: input.trim() && !isMaxed ? "#3b82f6" : "#1e3a5f",
+                background: input.trim() && !isMaxed ? "var(--primary)" : "var(--muted, #e2e8f0)",
                 border: "none",
                 borderRadius: 10,
                 width: 36,
                 height: 36,
                 cursor: input.trim() && !isMaxed ? "pointer" : "default",
-                color: "white",
+                color: input.trim() && !isMaxed ? "var(--primary-foreground)" : "var(--muted-foreground)",
                 fontSize: 14,
                 display: "flex",
                 alignItems: "center",
@@ -517,12 +517,12 @@ export function DigitalTwin() {
               bottom: "calc(100% + 6px)",
               left: "50%",
               transform: "translateX(-50%)",
-              background: "#0f172a",
-              border: "1px solid #1e3a5f",
+              background: "var(--background)",
+              border: "1px solid var(--border)",
               borderRadius: 8,
               padding: "4px 10px",
               fontSize: 11,
-              color: "#94a3b8",
+              color: "var(--muted-foreground, #94a3b8)",
               whiteSpace: "nowrap",
               fontFamily: "monospace",
               pointerEvents: "none",
