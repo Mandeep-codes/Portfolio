@@ -14,130 +14,190 @@ function ChibiSVG({
   isWaving: boolean
   isChatOpen: boolean
 }) {
+  // Skin: warm fair  #f2d5b8
+  // Hair: dark brown/black  #1a1008
+  // Jacket: near-black  #1a1a1a  with lapels showing white inner tee
+  // Eyes: dark brown  #2a1a0a  iris  with bright highlight
   return (
     <svg
-      viewBox="0 0 60 80"
-      width="60"
-      height="80"
+      viewBox="0 0 70 90"
+      width="70"
+      height="90"
       xmlns="http://www.w3.org/2000/svg"
       style={{ display: "block" }}
     >
+      <defs>
+        <radialGradient id="skinGrad" cx="50%" cy="40%" r="55%">
+          <stop offset="0%" stopColor="#fce8d0" />
+          <stop offset="100%" stopColor="#efc9a0" />
+        </radialGradient>
+        <radialGradient id="shadowGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#000" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#000" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+
       <style>{`
         @keyframes twin-bob {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-3px); }
+          50%       { transform: translateY(-3px); }
         }
         @keyframes twin-blink {
-          0%, 90%, 100% { transform: scaleY(1); }
-          95% { transform: scaleY(0.08); }
+          0%, 88%, 100% { transform: scaleY(1); }
+          93%           { transform: scaleY(0.06); }
         }
         @keyframes twin-wave {
           0%   { transform: rotate(0deg); }
-          20%  { transform: rotate(-45deg); }
-          40%  { transform: rotate(10deg); }
-          60%  { transform: rotate(-45deg); }
-          80%  { transform: rotate(10deg); }
+          20%  { transform: rotate(-50deg); }
+          40%  { transform: rotate(12deg); }
+          60%  { transform: rotate(-50deg); }
+          80%  { transform: rotate(12deg); }
           100% { transform: rotate(0deg); }
         }
-        @keyframes twin-float {
-          0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-2px); }
-        }
-        .twin-body { animation: twin-bob 2.2s ease-in-out infinite; }
-        .twin-eye  {
-          transform-origin: center;
-          animation: twin-blink 4.5s ease-in-out infinite;
-        }
-        .twin-arm-right {
-          transform-origin: 44px 46px;
-          animation: ${isWaving ? "twin-wave 1.6s ease-in-out 1" : "none"};
-        }
-        .twin-shadow { animation: twin-float 2.2s ease-in-out infinite; }
+        .twin-body      { animation: twin-bob 2.4s ease-in-out infinite; }
+        .twin-eye-group { transform-origin: center; animation: twin-blink 5s ease-in-out infinite; }
+        .twin-arm-r     { transform-origin: 52px 51px; animation: ${isWaving ? "twin-wave 1.8s ease-in-out 1" : "none"}; }
       `}</style>
 
       <g className="twin-body">
-        {/* Shadow */}
-        <ellipse className="twin-shadow" cx="30" cy="78" rx="14" ry="3" fill="#3b82f6" opacity="0.18" />
 
-        {/* Legs */}
-        <rect x="21" y="65" width="7" height="10" rx="3" fill="#1e293b" />
-        <rect x="32" y="65" width="7" height="10" rx="3" fill="#1e293b" />
-        {/* Shoes */}
-        <ellipse cx="24.5" cy="75" rx="5" ry="3" fill="#0f172a" />
-        <ellipse cx="35.5" cy="75" rx="5" ry="3" fill="#0f172a" />
+        {/* ── Ground shadow ── */}
+        <ellipse cx="35" cy="88" rx="16" ry="3.5" fill="url(#shadowGrad)" />
 
-        {/* Body */}
-        <rect x="18" y="45" width="24" height="22" rx="5" fill="#1e3a5f" />
-        {/* Shirt accent line */}
-        <rect x="28" y="46" width="4" height="21" rx="2" fill="#2563eb" opacity="0.5" />
+        {/* ── Legs – slim dark jeans ── */}
+        <rect x="23" y="71" width="9"  height="14" rx="4" fill="#1c1c2e" />
+        <rect x="37" y="71" width="9"  height="14" rx="4" fill="#1c1c2e" />
+        {/* Shoes – dark, slightly wider */}
+        <ellipse cx="27.5" cy="85" rx="6.5" ry="3" fill="#0d0d0d" />
+        <ellipse cx="41.5" cy="85" rx="6.5" ry="3" fill="#0d0d0d" />
 
-        {/* Left arm */}
-        <rect x="10" y="46" width="8" height="14" rx="4" fill="#1e3a5f" />
+        {/* ── Body – black open jacket ── */}
+        {/* Main jacket body */}
+        <rect x="18" y="50" width="34" height="24" rx="6" fill="#1a1a1a" />
+
+        {/* White inner tee – visible as a vertical strip */}
+        <rect x="30" y="51" width="10" height="23" rx="2" fill="#e8e8e8" />
+        {/* Tee collar V shape */}
+        <polygon points="30,51 40,51 35,59" fill="#d0d0d0" />
+
+        {/* Left jacket lapel */}
+        <polygon points="18,50 30,50 28,62 18,58" fill="#232323" />
+        {/* Right jacket lapel */}
+        <polygon points="52,50 40,50 42,62 52,58" fill="#232323" />
+
+        {/* Jacket edge shadows for depth */}
+        <rect x="18" y="50" width="3" height="24" rx="1" fill="#111" opacity="0.5" />
+        <rect x="49" y="50" width="3" height="24" rx="1" fill="#111" opacity="0.5" />
+
+        {/* ── Left arm ── */}
+        <rect x="9"  y="51" width="10" height="16" rx="5" fill="#1a1a1a" />
         {/* Left hand */}
-        <circle cx="14" cy="61" r="3.5" fill="#c9a882" />
+        <ellipse cx="14" cy="68" rx="5" ry="4" fill="#f2d5b8" />
 
-        {/* Right arm — waveable */}
-        <g className="twin-arm-right">
-          <rect x="42" y="46" width="8" height="14" rx="4" fill="#1e3a5f" />
+        {/* ── Right arm – waveable ── */}
+        <g className="twin-arm-r">
+          <rect x="51" y="51" width="10" height="16" rx="5" fill="#1a1a1a" />
           {/* Right hand */}
-          <circle cx="46" cy="61" r="3.5" fill="#c9a882" />
-          {/* Wave hand fingers hint */}
+          <ellipse cx="56" cy="68" rx="5" ry="4" fill="#f2d5b8" />
           {isWaving && (
             <>
-              <line x1="44" y1="58" x2="42" y2="55" stroke="#c9a882" strokeWidth="2" strokeLinecap="round" />
-              <line x1="46" y1="57" x2="46" y2="54" stroke="#c9a882" strokeWidth="2" strokeLinecap="round" />
-              <line x1="48" y1="58" x2="50" y2="55" stroke="#c9a882" strokeWidth="2" strokeLinecap="round" />
+              <line x1="54" y1="65" x2="51" y2="61" stroke="#f2d5b8" strokeWidth="2.5" strokeLinecap="round" />
+              <line x1="56" y1="64" x2="56" y2="60" stroke="#f2d5b8" strokeWidth="2.5" strokeLinecap="round" />
+              <line x1="58" y1="65" x2="61" y2="61" stroke="#f2d5b8" strokeWidth="2.5" strokeLinecap="round" />
             </>
           )}
         </g>
 
-        {/* Neck */}
-        <rect x="26" y="40" width="8" height="7" rx="2" fill="#c9a882" />
+        {/* ── Neck ── */}
+        <rect x="29" y="44" width="12" height="9" rx="3" fill="#f0cba0" />
+        {/* Neck shadow under chin */}
+        <rect x="29" y="44" width="12" height="3" rx="2" fill="#d9a87a" opacity="0.5" />
 
-        {/* Head */}
-        <rect x="13" y="14" width="34" height="30" rx="10" fill="#c9a882" />
+        {/* ── Head – slightly wide chibi ── */}
+        <ellipse cx="35" cy="28" rx="20" ry="22" fill="url(#skinGrad)" />
 
-        {/* Hair — chunky pixel-art style */}
-        <rect x="13" y="14" width="34" height="10" rx="8" fill="#1a0a00" />
-        <rect x="13" y="18" width="6" height="12" rx="3" fill="#1a0a00" />
-        <rect x="41" y="18" width="6" height="12" rx="3" fill="#1a0a00" />
-        {/* Hair spike */}
-        <rect x="24" y="10" width="6" height="8" rx="2" fill="#1a0a00" />
-        <rect x="30" y="8" width="5" height="10" rx="2" fill="#1a0a00" />
+        {/* ── Ear ── */}
+        <ellipse cx="15.5" cy="30" rx="3" ry="4" fill="#efc9a0" />
+        <ellipse cx="54.5" cy="30" rx="3" ry="4" fill="#efc9a0" />
 
-        {/* Eyes */}
-        <g className="twin-eye" style={{ transformOrigin: `${30 + eyeOffset.x}px ${27 + eyeOffset.y}px` }}>
+        {/* ── Hair base – dark messy style ── */}
+        {/* Main cap */}
+        <ellipse cx="35" cy="14" rx="20" ry="12" fill="#1a1008" />
+        {/* Side coverage left */}
+        <rect x="15" y="14" width="7"  height="20" rx="3" fill="#1a1008" />
+        {/* Side coverage right */}
+        <rect x="48" y="14" width="7"  height="18" rx="3" fill="#1a1008" />
+        {/* Forehead dip */}
+        <ellipse cx="35" cy="22" rx="16" ry="5" fill="#1a1008" />
+
+        {/* ── Messy hair strands – spiky, swept ── */}
+        {/* Left spikes going outward */}
+        <path d="M15 16 Q8 8 14 4 Q16 12 20 14 Z"  fill="#1a1008" />
+        <path d="M18 13 Q13 4 20 2 Q20 10 24 12 Z"  fill="#211408" />
+        {/* Center spikes */}
+        <path d="M28 10 Q26 1 32 0 Q31 8 35 10 Z"   fill="#1a1008" />
+        <path d="M33 9  Q33 0 38 1 Q36 8 39 11 Z"   fill="#211408" />
+        {/* Right spikes */}
+        <path d="M40 12 Q44 3 49 6 Q44 11 42 14 Z"  fill="#1a1008" />
+        <path d="M44 15 Q50 7 54 12 Q49 14 47 17 Z" fill="#211408" />
+        {/* Forelock strand sweeping right */}
+        <path d="M28 22 Q32 16 40 18 Q36 23 30 24 Z" fill="#2a1a0a" />
+
+        {/* ── Eyebrows – sharp, slightly arched ── */}
+        <path d="M20 24 Q24 21 28 23" stroke="#1a1008" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+        <path d="M42 23 Q46 21 50 24" stroke="#1a1008" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+
+        {/* ── Eyes – anime style, large dark iris ── */}
+        <g className="twin-eye-group" style={{ transformOrigin: `${35 + eyeOffset.x}px ${31 + eyeOffset.y}px` }}>
           {/* Left eye white */}
-          <ellipse cx={22 + eyeOffset.x * 0.6} cy={27 + eyeOffset.y * 0.5} rx="4" ry="4.5" fill="white" />
+          <ellipse cx={24 + eyeOffset.x * 0.5} cy={31 + eyeOffset.y * 0.4} rx="5.5" ry="5.5" fill="white" />
           {/* Right eye white */}
-          <ellipse cx={38 + eyeOffset.x * 0.6} cy={27 + eyeOffset.y * 0.5} rx="4" ry="4.5" fill="white" />
+          <ellipse cx={46 + eyeOffset.x * 0.5} cy={31 + eyeOffset.y * 0.4} rx="5.5" ry="5.5" fill="white" />
+
+          {/* Left iris – dark warm brown */}
+          <circle cx={24 + eyeOffset.x} cy={31 + eyeOffset.y} r="4" fill="#2a1a0a" />
+          {/* Left iris sheen */}
+          <circle cx={24 + eyeOffset.x} cy={31 + eyeOffset.y} r="3.2" fill="#3d2510" />
           {/* Left pupil */}
-          <circle cx={22 + eyeOffset.x} cy={27 + eyeOffset.y} r="2.2" fill="#0f172a" />
-          <circle cx={23 + eyeOffset.x} cy={26 + eyeOffset.y} r="0.8" fill="white" opacity="0.8" />
-          {/* Right pupil */}
-          <circle cx={38 + eyeOffset.x} cy={27 + eyeOffset.y} r="2.2" fill="#0f172a" />
-          <circle cx={39 + eyeOffset.x} cy={26 + eyeOffset.y} r="0.8" fill="white" opacity="0.8" />
+          <circle cx={24 + eyeOffset.x} cy={31.5 + eyeOffset.y} r="1.8" fill="#0d0806" />
+          {/* Left highlight */}
+          <circle cx={25.2 + eyeOffset.x} cy={29.5 + eyeOffset.y} r="1.1" fill="white" opacity="0.9" />
+          <circle cx={23 + eyeOffset.x} cy={32.5 + eyeOffset.y} r="0.5" fill="white" opacity="0.4" />
+
+          {/* Right iris */}
+          <circle cx={46 + eyeOffset.x} cy={31 + eyeOffset.y} r="4" fill="#2a1a0a" />
+          <circle cx={46 + eyeOffset.x} cy={31 + eyeOffset.y} r="3.2" fill="#3d2510" />
+          <circle cx={46 + eyeOffset.x} cy={31.5 + eyeOffset.y} r="1.8" fill="#0d0806" />
+          {/* Right highlight */}
+          <circle cx={47.2 + eyeOffset.x} cy={29.5 + eyeOffset.y} r="1.1" fill="white" opacity="0.9" />
+          <circle cx={45 + eyeOffset.x} cy={32.5 + eyeOffset.y} r="0.5" fill="white" opacity="0.4" />
+
+          {/* Upper eyelid line – gives anime sharpness */}
+          <path
+            d={`M${18.5 + eyeOffset.x * 0.3} ${28 + eyeOffset.y * 0.3} Q${24 + eyeOffset.x * 0.3} ${25.5 + eyeOffset.y * 0.3} ${29.5 + eyeOffset.x * 0.3} ${28 + eyeOffset.y * 0.3}`}
+            stroke="#1a1008" strokeWidth="1.8" fill="none" strokeLinecap="round"
+          />
+          <path
+            d={`M${40.5 + eyeOffset.x * 0.3} ${28 + eyeOffset.y * 0.3} Q${46 + eyeOffset.x * 0.3} ${25.5 + eyeOffset.y * 0.3} ${51.5 + eyeOffset.x * 0.3} ${28 + eyeOffset.y * 0.3}`}
+            stroke="#1a1008" strokeWidth="1.8" fill="none" strokeLinecap="round"
+          />
         </g>
 
-        {/* Eyebrows */}
-        <rect x="18" y="21" width="8" height="2" rx="1" fill="#1a0a00" opacity="0.8" />
-        <rect x="34" y="21" width="8" height="2" rx="1" fill="#1a0a00" opacity="0.8" />
+        {/* ── Nose – minimal dot/bump ── */}
+        <ellipse cx="35" cy="37" rx="1.2" ry="0.8" fill="#d4956a" opacity="0.7" />
 
-        {/* Mouth */}
+        {/* ── Mouth ── */}
         {isChatOpen ? (
-          // Talking / excited mouth
-          <ellipse cx="30" cy="36" rx="4" ry="2.5" fill="#e11d48" />
+          // Talking – small open mouth
+          <ellipse cx="35" cy="42" rx="3.5" ry="2.5" fill="#c0624a" />
         ) : (
-          // Smile
-          <path d="M 25 36 Q 30 40 35 36" stroke="#7c3f1e" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+          // Relaxed slight smirk
+          <path d="M 30 42 Q 35 45 40 42" stroke="#c07050" strokeWidth="1.6" fill="none" strokeLinecap="round" />
         )}
 
-        {/* Blush marks */}
-        <ellipse cx="19" cy="32" rx="3" ry="1.5" fill="#f9a8d4" opacity="0.5" />
-        <ellipse cx="41" cy="32" rx="3" ry="1.5" fill="#f9a8d4" opacity="0.5" />
+        {/* ── Subtle chin shadow ── */}
+        <ellipse cx="35" cy="48" rx="10" ry="3" fill="#d9a060" opacity="0.25" />
 
-        {/* Blue accent on collar */}
-        <rect x="24" y="44" width="12" height="4" rx="2" fill="#3b82f6" opacity="0.8" />
       </g>
     </svg>
   )
@@ -552,7 +612,7 @@ export function DigitalTwin() {
               height: 9,
               borderRadius: "50%",
               background: "#3b82f6",
-              border: "1.5px solid #0a0a0a",
+              border: "1.5px solid var(--background)",
               boxShadow: "0 0 6px rgba(59,130,246,0.8)",
               animation: "twin-pulse 2s ease-in-out infinite",
             }}
