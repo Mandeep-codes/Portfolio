@@ -17,7 +17,7 @@ export const USER: User = {
     "404 No Bugs Found",
   ],
   address: "Rajasthan, India",
-  phoneNumber: "KzkxNjM3NjkzMDQ2MQ==", // base64: +916376930461
+  phoneNumber: "",
   email: "bWFuZGVlcG5laHJhLndvcmtAZ21haWwuY29t", // base64: mandeepnehra.work@gmail.com
   website: "https://mandeep-portfolio-mu.vercel.app",
   jobTitle: "Full Stack Developer & Machine Learning Enthusiast",
