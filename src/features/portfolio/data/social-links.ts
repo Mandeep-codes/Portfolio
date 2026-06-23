@@ -8,12 +8,6 @@ export const SOCIAL_LINKS: SocialLink[] = [
     href: "https://github.com/Mandeep-codes",
   },
   {
-    icon: "https://assets.chanhdai.com/images/link-icons/linkedin.webp?v=2",
-    title: "LinkedIn",
-    subtitle: "mandeep-nehra",
-    href: "https://www.linkedin.com/in/mandeep-nehra-289224371/",
-  },
-  {
     icon: "https://assets.chanhdai.com/images/link-icons/x.webp?v=2",
     title: "X",
     subtitle: "@NehraWorkss",
