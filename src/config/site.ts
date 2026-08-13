@@ -27,7 +27,7 @@ export const MOBILE_NAV: NavItem[] = [
   },
 ]
 
-export const X_HANDLE = "@mandeep_nehra"
+export const X_HANDLE = "@DeepStarts"
 export const GITHUB_USERNAME = "Mandeep-codes"
 export const SOURCE_CODE_GITHUB_REPO = "Mandeep-codes/Portfolio"
 export const SOURCE_CODE_GITHUB_URL = "https://github.com/Mandeep-codes/Portfolio"

@@ -13,8 +13,8 @@ const KB = {
   nickname: "Deep",
   location: "Rajasthan, India",
   email: "mandeepnehra.work@gmail.com",
-  x: "@NehraWorkss",
-  xUrl: "https://x.com/NehraWorkss",
+  x: "@DeepStarts",
+  xUrl: "https://x.com/DeepStarts",
   github: "github.com/Mandeep-codes",
   linkedin: "linkedin.com/in/mandeep-nehra-289224371",
   education:

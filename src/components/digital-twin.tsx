@@ -494,7 +494,7 @@ export function DigitalTwin() {
             )}
             {isMaxed && !isTyping && (
               <div style={{ textAlign: "center", color: "var(--muted-foreground, #64748b)", fontSize: 11, marginTop: 8, fontFamily: "monospace" }}>
-                That's all I've got! DM Deep at @NehraWorkss on X 🐦
+                That's all I've got! DM Deep at @DeepStarts on X 🐦
               </div>
             )}
             <div ref={messagesEndRef} />

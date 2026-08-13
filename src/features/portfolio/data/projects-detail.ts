@@ -43,7 +43,7 @@ React · Vite · Tailwind CSS · Axios · React Router · Node.js · Express · 
   },
   omnibrief: {
     id: "omnibrief",
-    demoUrl: "https://x.com/NehraWorkss/status/2059241482356506669?s=20",
+    demoUrl: "https://x.com/DeepStarts/status/2059241482356506669?s=20",
     screenshots: [omnibriefImage.src],
     readme: `
 OmniBrief is a full-stack video intelligence engine that ingests YouTube videos and local files, generating transcripts, summaries, decisions, and action items through AI-powered analysis. Additionally, implemented a RAG-based conversational interface using ChromaDB and LangChain, enabling users to query video content with contextual accuracy.
@@ -91,7 +91,7 @@ Java 17 · JavaFX · OAuth 2.0 · Gmail API · JSoup · Maven · H2 Database
   },
   sketchify: {
     id: "sketchify",
-    demoUrl: "https://x.com/NehraWorkss/status/2056965653022830739?s=20",
+    demoUrl: "https://x.com/DeepStarts/status/2056965653022830739?s=20",
     screenshots: [SketchifyImage.src],
     readme: `
 Sketchify is an AI-powered sketch-to-art platform where anyone can draw, choose a style, and instantly transform simple doodles into beautiful artwork. With AR visualization, reel generation, creative challenges, and a social community, Sketchify makes creating and sharing art accessible to everyone—regardless of artistic skill.
