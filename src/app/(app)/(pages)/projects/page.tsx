@@ -9,7 +9,7 @@ import { PROJECTS } from "@/features/portfolio/data/projects"
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "All projects by Mandeep Nehra",
+  description: "All projects by Mandeep",
 }
 
 export default function ProjectsPage() {

@@ -4,8 +4,8 @@ import profilepic from "./images/profile.png"
 
 export const USER: User = {
   firstName: "Mandeep",
-  lastName: "Nehra",
-  displayName: "Mandeep Nehra",
+  lastName: "",
+  displayName: "Mandeep",
   username: "Mandeep-codes",
   gender: "male",
   pronouns: "he/him",

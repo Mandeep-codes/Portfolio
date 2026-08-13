@@ -9,7 +9,7 @@ export type Message = {
 // ─── Knowledge base ──────────────────────────────────────────────────────────
 
 const KB = {
-  name: "Mandeep Nehra",
+  name: "Mandeep",
   nickname: "Deep",
   location: "Rajasthan, India",
   email: "mandeepnehra.work@gmail.com",
@@ -131,14 +131,14 @@ const RULES: Rule[] = [
     keywords: ["who", "what", "are", "you", "deep", "mandeep", "bot", "ai", "real", "twin", "this"],
     boost: ["who", "what are you", "who are you", "who is"],
     response: () =>
-      `I'm a pixel-art digital twin of **Deep** (Mandeep Nehra) — Full Stack Developer & ML Enthusiast from Rajasthan, India. Ask me anything about him!`,
+      `I'm a pixel-art digital twin of **Deep** (Mandeep) — Full Stack Developer & ML Enthusiast from Rajasthan, India. Ask me anything about him!`,
   },
 
   // Name
   {
     keywords: ["name", "called", "call", "full name", "your name", "his name"],
     boost: ["name"],
-    response: () => `He goes by **Deep** — full name Mandeep Nehra. 🇮🇳`,
+    response: () => `He goes by **Deep** — short for Mandeep. 🇮🇳`,
   },
 
   // About / bio / intro
