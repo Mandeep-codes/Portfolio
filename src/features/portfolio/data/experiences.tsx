@@ -37,7 +37,6 @@ export const EXPERIENCES: Experience[] = [
         isExpanded: true,
       },
     ],
-    isCurrentEmployer: true,
   },
   {
     id: "freelance",
@@ -67,7 +66,6 @@ export const EXPERIENCES: Experience[] = [
         isExpanded: true,
       },
     ],
-    isCurrentEmployer: true,
   },
   {
     id: "research-intern",
@@ -89,7 +87,6 @@ export const EXPERIENCES: Experience[] = [
         isExpanded: true,
       },
     ],
-    isCurrentEmployer: true,
   },
   {
     id: "Internship",
@@ -119,7 +116,6 @@ export const EXPERIENCES: Experience[] = [
         isExpanded: true,
       },
     ],
-    isCurrentEmployer: true,
   },
   {
     id: "education",

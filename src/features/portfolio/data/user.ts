@@ -23,10 +23,10 @@ export const USER: User = {
   jobTitle: "Full Stack Developer & Machine Learning Enthusiast",
   jobs: [
     {
-      title: "Machine Learning Intern",
-      company: "dfccil India",
+      title: "Ex AI Intern",
+      company: "DFCCIL",
       website: "",
-      experienceId: "freelance",
+      experienceId: "dfccil",
     },
   ],
   about: `
