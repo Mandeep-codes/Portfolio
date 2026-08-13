@@ -11,6 +11,34 @@ import type { Experience } from "../types/experiences"
 
 export const EXPERIENCES: Experience[] = [
   {
+    id: "dfccil",
+    companyName: "DFCCIL",
+    companyIcon: <BriefcaseBusinessIcon strokeWidth={1.8} />,
+    positions: [
+      {
+        id: "ai-intern",
+        title: "AI Intern",
+        employmentPeriod: {
+          start: "May 2026",
+        },
+        employmentType: "Internship",
+        icon: <CodeXmlIcon />,
+        description:
+          "Built and trained a crew management system for Dedicated Freight Corridor Corporation of India Limited (DFCCIL), automating crew rostering, duty allocation, and availability tracking across freight operations. Trained machine learning models on historical crew and scheduling data to predict availability, optimise duty assignments, and reduce manual planning effort.",
+        skills: [
+          "Python",
+          "Machine Learning",
+          "Pandas",
+          "NumPy",
+          "scikit-learn",
+          "SQL",
+        ],
+        isExpanded: true,
+      },
+    ],
+    isCurrentEmployer: true,
+  },
+  {
     id: "freelance",
     companyName: "Zenjaura Publishing House",
     companyIcon: <BriefcaseBusinessIcon strokeWidth={1.8} />,
