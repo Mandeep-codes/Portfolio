@@ -20,6 +20,7 @@ export const EXPERIENCES: Experience[] = [
         title: "AI Intern",
         employmentPeriod: {
           start: "May 2026",
+          end: "July 2026",
         },
         employmentType: "Internship",
         icon: <CodeXmlIcon />,
